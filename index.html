@@ -3,199 +3,658 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OneBlink — Política de Privacidad</title>
-  <meta name="description" content="Política de Privacidad de OneBlink, el marketplace de Cuba." />
+  <title>OneBlink — Política de Privacidad / Privacy Policy</title>
+  <meta name="description" content="Política de Privacidad de OneBlink — Marketplace de Cuba. Privacy Policy of OneBlink, Cuba's marketplace." />
   <style>
     :root {
       --primary: #7C4DFF;
       --primary-dark: #5E35B1;
+      --primary-soft: #EDE7FF;
       --bg: #F7F7FB;
       --surface: #FFFFFF;
-      --text: #1A1A2E;
+      --text: #17172B;
       --text-soft: #5A5A72;
       --border: #E5E5F0;
       --radius: 14px;
+      --shadow: 0 2px 12px rgba(94, 53, 177, 0.06);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.65;
+      line-height: 1.7;
+      font-size: 16px;
     }
+
+    /* ── Header ── */
     header {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      background: linear-gradient(135deg, #7C4DFF 0%, #4A1FBF 100%);
       color: #fff;
-      padding: 48px 24px 40px;
-      text-align: center;
+      padding: 20px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 2px 16px rgba(74, 31, 191, 0.35);
     }
-    header .logo {
-      font-size: 28px;
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 22px;
       font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 6px;
+      letter-spacing: -0.4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    header .logo span { color: #E0D5FF; }
-    header p { opacity: 0.9; font-size: 15px; }
-    main {
-      max-width: 760px;
+    .logo-mark {
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+    }
+    .logo span { color: #D9CBFF; }
+    .lang-switch {
+      display: flex;
+      gap: 4px;
+      background: rgba(255,255,255,0.14);
+      padding: 4px;
+      border-radius: 12px;
+    }
+    .lang-switch button {
+      border: none;
+      background: transparent;
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    .lang-switch button:hover { color: #fff; }
+    .lang-switch button.active {
+      background: #fff;
+      color: var(--primary-dark);
+    }
+
+    /* ── Layout ── */
+    .layout {
+      max-width: 1080px;
       margin: 0 auto;
       padding: 32px 20px 64px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 32px;
+      align-items: start;
     }
-    .card {
+    @media (max-width: 860px) {
+      .layout { grid-template-columns: 1fr; }
+      nav.toc { position: static; max-height: none; }
+    }
+
+    /* ── TOC ── */
+    nav.toc {
+      position: sticky;
+      top: 96px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 28px 30px;
-      margin-bottom: 20px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
     }
-    h1 { font-size: 22px; margin-bottom: 8px; }
-    .updated {
+    nav.toc h3 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+    nav.toc a {
+      display: block;
+      padding: 6px 10px;
+      border-radius: 8px;
+      color: var(--text-soft);
+      text-decoration: none;
+      font-size: 13.5px;
+      border-left: 3px solid transparent;
+      transition: all 0.12s;
+    }
+    nav.toc a:hover { background: var(--primary-soft); color: var(--primary-dark); }
+    nav.toc a.active {
+      border-left-color: var(--primary);
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    /* ── Content ── */
+    .content { min-width: 0; }
+    .hero-card {
+      background: linear-gradient(135deg, var(--surface) 0%, #F3EEFF 100%);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px 32px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+    .hero-card .badge {
+      display: inline-block;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .hero-card h1 { font-size: 26px; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .hero-card .updated {
       font-size: 13px;
       color: var(--text-soft);
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
-    h2 {
-      font-size: 17px;
+    .hero-card .lead { font-size: 15px; color: var(--text-soft); }
+
+    section.card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px 30px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 90px;
+    }
+    section.card h2 {
+      font-size: 18px;
       color: var(--primary-dark);
-      margin: 26px 0 10px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    p { margin-bottom: 12px; }
-    ul { padding-left: 22px; margin-bottom: 12px; }
-    li { margin-bottom: 6px; }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    section.card h2 .num {
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    section.card h3 { font-size: 15px; margin: 16px 0 6px; color: var(--text); }
+    section.card p { margin-bottom: 12px; font-size: 14.5px; }
+    section.card ul { padding-left: 22px; margin-bottom: 12px; }
+    section.card li { margin-bottom: 7px; font-size: 14.5px; }
+    section.card strong { color: var(--text); }
+    section.card a { color: var(--primary); }
+    .highlight {
+      background: #FFF8E6;
+      border: 1px solid #F0DFA8;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 13.5px;
+      margin: 12px 0;
+    }
+
     footer {
       text-align: center;
       color: var(--text-soft);
       font-size: 13px;
-      padding: 24px;
+      padding: 28px 20px;
       border-top: 1px solid var(--border);
     }
-    .badge {
-      display: inline-block;
-      background: #EDE7FF;
-      color: var(--primary-dark);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-bottom: 14px;
-    }
+    footer .heart { color: #E5484D; }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">One<span>Blink</span></div>
-    <p>Marketplace de Cuba · Productos, servicios y propiedades</p>
-  </header>
 
-  <main>
-    <div class="card">
-      <span class="badge">Política de Privacidad</span>
-      <h1>Política de Privacidad</h1>
-      <p class="updated">Última actualización: 7 de agosto de 2026</p>
-      <p>
-        Esta Política de Privacidad explica cómo <strong>LedexSoft</strong>
-        ("nosotros", "OneBlink") recopila, usa y protege la información de las
-        personas que usan la aplicación <strong>OneBlink</strong> ("la App").
-      </p>
-      <p>
-        Al usar la App aceptás esta política. Si no estás de acuerdo, no uses
-        la App.
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-mark">⚡</span>
+      <span>One<span>Blink</span></span>
+    </div>
+    <div class="lang-switch" role="group" aria-label="Idioma / Language / Idioma">
+      <button data-lang="es" class="active">ES</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="pt">PT</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" id="toc">
+    <h3 data-i18n="tocTitle">Contenido</h3>
+    <a href="#intro" data-i18n="toc1">1. Introducción</a>
+    <a href="#datos" data-i18n="toc2">2. Datos que recopilamos</a>
+    <a href="#uso" data-i18n="toc3">3. Cómo usamos tus datos</a>
+    <a href="#compartir" data-i18n="toc4">4. Con quién compartimos</a>
+    <a href="#bases" data-i18n="toc5">5. Base legal</a>
+    <a href="#retencion" data-i18n="toc6">6. Retención de datos</a>
+    <a href="#seguridad" data-i18n="toc7">7. Seguridad</a>
+    <a href="#derechos" data-i18n="toc8">8. Tus derechos</a>
+    <a href="#menores" data-i18n="toc9">9. Menores de edad</a>
+    <a href="#cookies" data-i18n="toc10">10. Cookies y tecnología</a>
+    <a href="#transferencias" data-i18n="toc11">11. Transferencias internacionales</a>
+    <a href="#cambios" data-i18n="toc12">12. Cambios a esta política</a>
+    <a href="#contacto" data-i18n="toc13">13. Contacto</a>
+  </nav>
+
+  <div class="content">
+
+    <div class="hero-card">
+      <span class="badge" data-i18n="badge">Política de Privacidad</span>
+      <h1 data-i18n="title">Política de Privacidad</h1>
+      <p class="updated" data-i18n="updated">Última actualización: 7 de agosto de 2026</p>
+      <p class="lead" data-i18n="lead">
+        Esta Política de Privacidad explica cómo LedexSoft ("nosotros", "OneBlink")
+        recopila, usa y protege la información de las personas que usan la aplicación
+        OneBlink ("la App"). Al usar la App aceptás esta política.
       </p>
     </div>
 
-    <div class="card">
-      <h2>1. Datos que recopilamos</h2>
-      <p>La App recopila los siguientes datos, siempre que vos los proporcionás:</p>
+    <section class="card" id="intro">
+      <h2><span class="num">1</span><span data-i18n="s1t">Introducción</span></h2>
+      <p data-i18n="s1p1">
+        OneBlink es un marketplace que conecta compradores y vendedores en Cuba:
+        productos, servicios y propiedades. Para que la App funcione necesitamos
+        tratar ciertos datos personales. Esta política aplica a toda la información
+        que nos proporcionás al crear tu cuenta, navegar, comprar, vender o publicar.
+      </p>
+      <p data-i18n="s1p2">
+        "Datos personales" significa cualquier información que permita identificarte,
+        directa o indirectamente: nombre, correo, número de documento, fotos, etc.
+      </p>
+    </section>
+
+    <section class="card" id="datos">
+      <h2><span class="num">2</span><span data-i18n="s2t">Datos que recopilamos</span></h2>
+      <p data-i18n="s2p1">Recopilamos únicamente los datos que vos nos proporcionás o que se generan al usar la App:</p>
       <ul>
-        <li><strong>Datos de cuenta:</strong> nombre, apellidos, correo electrónico, foto de perfil (opcional) y número de documento de identidad (Carnet de Identidad / CPF) cuando corresponde.</li>
-        <li><strong>Datos de perfil:</strong> país, pueblo/ubicación, dirección de entrega y preferencias declaradas.</li>
-        <li><strong>Contenido publicado:</strong> anuncios de propiedades (fotos, descripción, precio, datos de contacto que vos cargás), reseñas y mensajes.</li>
-        <li><strong>Datos de pedidos:</strong> historial de compras, pedidos realizados y estado de los mismos.</li>
-        <li><strong>Datos de uso:</strong> información técnica básica necesaria para el funcionamiento (versión de la app, idioma del dispositivo).</li>
+        <li data-i18n="s2l1"><strong>Datos de cuenta:</strong> nombre, apellidos, correo electrónico, foto de perfil (opcional) y documento de identidad (Carnet de Identidad o CPF) cuando corresponde.</li>
+        <li data-i18n="s2l2"><strong>Datos de perfil:</strong> país, pueblo o ubicación, dirección de entrega y preferencias que declarás.</li>
+        <li data-i18n="s2l3"><strong>Contenido publicado:</strong> anuncios de propiedades (fotos, descripción, precio, datos de contacto que cargás), reseñas y mensajes.</li>
+        <li data-i18n="s2l4"><strong>Datos de pedidos:</strong> historial de compras, pedidos realizados y su estado.</li>
+        <li data-i18n="s2l5"><strong>Datos técnicos:</strong> versión de la app, idioma del dispositivo y datos de diagnóstico necesarios para el funcionamiento.</li>
       </ul>
-    </div>
+      <p data-i18n="s2p2">
+        <strong>No recopilamos</strong> datos sensibles (salud, religión, orientación
+        sexual, biometría) ni datos de ubicación en segundo plano.
+      </p>
+    </section>
 
-    <div class="card">
-      <h2>2. Cómo usamos tus datos</h2>
+    <section class="card" id="uso">
+      <h2><span class="num">3</span><span data-i18n="s3t">Cómo usamos tus datos</span></h2>
       <ul>
-        <li>Crear y gestionar tu cuenta en OneBlink.</li>
-        <li>Mostrar el catálogo de productos, servicios y propiedades.</li>
-        <li>Procesar pedidos y coordinar la entrega o reserva.</li>
-        <li>Publicar los anuncios inmobiliarios que creás (los datos de contacto que cargás son visibles para otros usuarios).</li>
-        <li>Brindar soporte y responder consultas.</li>
-        <li>Cumplir obligaciones legales y prevenir fraude o abuso.</li>
+        <li data-i18n="s3l1">Crear y gestionar tu cuenta en OneBlink.</li>
+        <li data-i18n="s3l2">Mostrar el catálogo de productos, servicios y propiedades.</li>
+        <li data-i18n="s3l3">Procesar pedidos y coordinar entregas o reservas.</li>
+        <li data-i18n="s3l4">Publicar los anuncios que creás: los datos de contacto que cargás en una propiedad son visibles para otros usuarios (es necesario para que puedan contactarte).</li>
+        <li data-i18n="s3l5">Brindar soporte y responder consultas.</li>
+        <li data-i18n="s3l6">Prevenir fraude, abuso y uso indebido de la plataforma.</li>
+        <li data-i18n="s3l7">Cumplir obligaciones legales.</li>
       </ul>
-      <p>
-        <strong>No vendemos tus datos personales</strong> a terceros ni los
-        usamos para publicidad dirigida.
+      <p data-i18n="s3p1">
+        <strong>No vendemos tus datos personales</strong> a terceros ni los usamos
+        para publicidad dirigida.
       </p>
-    </div>
+    </section>
 
-    <div class="card">
-      <h2>3. Almacenamiento y proveedores</h2>
-      <p>
-        Tus datos se almacenan en <strong>Supabase</strong>, un servicio de
-        base de datos en la nube con cifrado en tránsito y en reposo. Los
-        servidores pueden estar ubicados fuera de Cuba.
-      </p>
-      <p>
-        La App muestra tasas de cambio provistas por el servicio
-        <strong>elTOQUE</strong>; este servicio no recibe tus datos personales.
-      </p>
-      <p>
-        La App puede abrir enlaces externos (por ejemplo, WhatsApp) para
-        contactar vendedores o reservar servicios. Una vez fuera de la App,
-        se aplican las políticas del servicio correspondiente.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>4. Seguridad</h2>
-      <p>
-        Aplicamos medidas técnicas y organizativas para proteger tus datos:
-        cifrado, control de acceso por usuario y políticas de seguridad a
-        nivel de fila (RLS) en la base de datos. Ningún sistema es 100%
-        seguro, pero trabajamos para proteger tu información.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>5. Tus derechos</h2>
-      <p>Podés:</p>
+    <section class="card" id="compartir">
+      <h2><span class="num">4</span><span data-i18n="s4t">Con quién compartimos datos</span></h2>
+      <p data-i18n="s4p1">Solo compartimos datos con los proveedores imprescindibles para operar:</p>
       <ul>
-        <li><strong>Acceder</strong> a tus datos desde tu perfil en la App.</li>
-        <li><strong>Corregir</strong> tu información personal.</li>
-        <li><strong>Eliminar tu cuenta</strong> y tus datos desde la App (Ajustes → Eliminar cuenta), lo que borra tu perfil y la información asociada.</li>
-        <li><strong>Contactarnos</strong> para cualquier consulta sobre tus datos.</li>
+        <li data-i18n="s4l1"><strong>Supabase:</strong> base de datos y autenticación. Tus datos se almacenan ahí con cifrado en tránsito y en reposo.</li>
+        <li data-i18n="s4l2"><strong>elTOQUE:</strong> proveedor de tasas de cambio. No recibe tus datos personales.</li>
+        <li data-i18n="s4l3"><strong>WhatsApp / enlaces externos:</strong> la App puede abrir WhatsApp para contactar vendedores o reservar. Fuera de la App rigen las políticas de ese servicio.</li>
+        <li data-i18n="s4l4"><strong>Autoridades:</strong> si la ley lo exige, podemos revelar datos a autoridades competentes.</li>
       </ul>
-    </div>
+      <div class="highlight" data-i18n="s4h">
+        ⚠️ Recordá: cuando publicás una propiedad, tus datos de contacto quedan visibles
+        para otros usuarios de la App. No publiques información que no quieras exponer.
+      </div>
+    </section>
 
-    <div class="card">
-      <h2>6. Contacto</h2>
-      <p>
-        Si tenés preguntas sobre esta Política de Privacidad o sobre tus
-        datos, escribinos a:
+    <section class="card" id="bases">
+      <h2><span class="num">5</span><span data-i18n="s5t">Base legal del tratamiento</span></h2>
+      <p data-i18n="s5p1">Tratamos tus datos personales con las siguientes bases legales:</p>
+      <ul>
+        <li data-i18n="s5l1"><strong>Ejecución del contrato:</strong> crear la cuenta, procesar pedidos y prestar el servicio que solicitaste.</li>
+        <li data-i18n="s5l2"><strong>Consentimiento:</strong> cuando nos autorizás a publicar contenido o procesar datos opcionales. Podés retirarlo en cualquier momento.</li>
+        <li data-i18n="s5l3"><strong>Interés legítimo:</strong> mejorar la plataforma, prevenir fraude y garantizar la seguridad.</li>
+        <li data-i18n="s5l4"><strong>Obligación legal:</strong> cuando debamos conservar o revelar datos por ley.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="retencion">
+      <h2><span class="num">6</span><span data-i18n="s6t">Retención de datos</span></h2>
+      <p data-i18n="s6p1">
+        Conservamos tus datos mientras tu cuenta esté activa. Al eliminar tu cuenta,
+        borramos tu perfil y la información asociada. Podemos conservar ciertos datos
+        durante el tiempo que exija la ley (por ejemplo, registros contables o
+        fiscales) o para resolver disputas, en cuyo caso se mantienen mínimos y
+        bloqueados.
+      </p>
+    </section>
+
+    <section class="card" id="seguridad">
+      <h2><span class="num">7</span><span data-i18n="s7t">Seguridad</span></h2>
+      <p data-i18n="s7p1">
+        Aplicamos medidas técnicas y organizativas: cifrado en tránsito y en reposo,
+        autenticación segura, control de acceso por usuario y políticas de seguridad
+        a nivel de fila (RLS) en la base de datos. Ningún sistema es 100% seguro,
+        pero trabajamos continuamente para proteger tu información.
+      </p>
+    </section>
+
+    <section class="card" id="derechos">
+      <h2><span class="num">8</span><span data-i18n="s8t">Tus derechos</span></h2>
+      <p data-i18n="s8p1">Podés ejercer los siguientes derechos:</p>
+      <ul>
+        <li data-i18n="s8l1"><strong>Acceso:</strong> conocer qué datos tenemos tuyos.</li>
+        <li data-i18n="s8l2"><strong>Rectificación:</strong> corregir datos inexactos desde tu perfil.</li>
+        <li data-i18n="s8l3"><strong>Supresión:</strong> eliminar tu cuenta y tus datos desde la App (Ajustes → Eliminar cuenta).</li>
+        <li data-i18n="s8l4"><strong>Portabilidad y oposición:</strong> donde aplique, pedir una copia de tus datos o limitar su uso.</li>
+      </ul>
+      <p data-i18n="s8p2">
+        Para ejercer cualquiera de estos derechos, escribinos al correo de contacto.
+        Respondemos dentro de un plazo razonable (máximo 30 días).
+      </p>
+    </section>
+
+    <section class="card" id="menores">
+      <h2><span class="num">9</span><span data-i18n="s9t">Menores de edad</span></h2>
+      <p data-i18n="s9p1">
+        La App está dirigida a personas mayores de 18 años. No recopilamos
+        intencionalmente datos de menores. Si tenés motivos para creer que un menor
+        nos proporcionó datos, contactanos y los eliminaremos.
+      </p>
+    </section>
+
+    <section class="card" id="cookies">
+      <h2><span class="num">10</span><span data-i18n="s10t">Cookies y tecnología</span></h2>
+      <p data-i18n="s10p1">
+        La App no utiliza cookies de seguimiento ni publicidad. Podemos almacenar
+        localmente en tu dispositivo preferencias (como el idioma) y datos de sesión
+        necesarios para el funcionamiento. Esta página web no usa cookies analíticas.
+      </p>
+    </section>
+
+    <section class="card" id="transferencias">
+      <h2><span class="num">11</span><span data-i18n="s11t">Transferencias internacionales</span></h2>
+      <p data-i18n="s11p1">
+        Los datos se almacenan en servicios en la nube (Supabase) cuyos servidores
+        pueden ubicarse fuera de Cuba. Al usar la App, aceptás este tratamiento
+        internacional, siempre con medidas de seguridad y cifrado.
+      </p>
+    </section>
+
+    <section class="card" id="cambios">
+      <h2><span class="num">12</span><span data-i18n="s12t">Cambios a esta política</span></h2>
+      <p data-i18n="s12p1">
+        Podemos actualizar esta política cuando sea necesario. La versión vigente se
+        publica siempre en esta página con su fecha. Si hay cambios importantes, lo
+        avisamos dentro de la App.
+      </p>
+    </section>
+
+    <section class="card" id="contacto">
+      <h2><span class="num">13</span><span data-i18n="s13t">Contacto</span></h2>
+      <p data-i18n="s13p1">
+        Ante cualquier consulta sobre esta política o tus datos, escribinos a:
       </p>
       <p><strong>ledexsoft@gmail.com</strong></p>
-    </div>
+    </section>
 
-    <div class="card">
-      <h2>7. Cambios a esta política</h2>
-      <p>
-        Podemos actualizar esta política cuando sea necesario. La versión
-        vigente se publica siempre en esta página con su fecha de
-        actualización. Si hay cambios importantes, lo avisamos dentro de la
-        App.
-      </p>
-    </div>
-  </main>
+  </div>
+</div>
 
-  <footer>
-    OneBlink · LedexSoft © 2026 · Hecho en Cuba 🇨🇺
-  </footer>
+<footer>
+  <span data-i18n="footer">OneBlink · LedexSoft © 2026 · Hecho con</span> <span class="heart">♥</span> <span data-i18n="footer2">en Cuba 🇨🇺</span>
+</footer>
+
+<script>
+  // ── Traducciones (es / en / pt) ──
+  const I18N = {
+    es: {
+      htmlLang: 'es',
+      docTitle: 'OneBlink — Política de Privacidad',
+      tocTitle: 'Contenido',
+      toc1: '1. Introducción', toc2: '2. Datos que recopilamos', toc3: '3. Cómo usamos tus datos',
+      toc4: '4. Con quién compartimos', toc5: '5. Base legal', toc6: '6. Retención de datos',
+      toc7: '7. Seguridad', toc8: '8. Tus derechos', toc9: '9. Menores de edad',
+      toc10: '10. Cookies y tecnología', toc11: '11. Transferencias internacionales',
+      toc12: '12. Cambios a esta política', toc13: '13. Contacto',
+      badge: 'Política de Privacidad',
+      title: 'Política de Privacidad',
+      updated: 'Última actualización: 7 de agosto de 2026',
+      lead: 'Esta Política de Privacidad explica cómo LedexSoft ("nosotros", "OneBlink") recopila, usa y protege la información de las personas que usan la aplicación OneBlink ("la App"). Al usar la App aceptás esta política.',
+      s1t: 'Introducción', s1p1: 'OneBlink es un marketplace que conecta compradores y vendedores en Cuba: productos, servicios y propiedades. Para que la App funcione necesitamos tratar ciertos datos personales. Esta política aplica a toda la información que nos proporcionás al crear tu cuenta, navegar, comprar, vender o publicar.',
+      s1p2: '"Datos personales" significa cualquier información que permita identificarte, directa o indirectamente: nombre, correo, número de documento, fotos, etc.',
+      s2t: 'Datos que recopilamos', s2p1: 'Recopilamos únicamente los datos que vos nos proporcionás o que se generan al usar la App:',
+      s2l1: '<strong>Datos de cuenta:</strong> nombre, apellidos, correo electrónico, foto de perfil (opcional) y documento de identidad (Carnet de Identidad o CPF) cuando corresponde.',
+      s2l2: '<strong>Datos de perfil:</strong> país, pueblo o ubicación, dirección de entrega y preferencias que declarás.',
+      s2l3: '<strong>Contenido publicado:</strong> anuncios de propiedades (fotos, descripción, precio, datos de contacto que cargás), reseñas y mensajes.',
+      s2l4: '<strong>Datos de pedidos:</strong> historial de compras, pedidos realizados y su estado.',
+      s2l5: '<strong>Datos técnicos:</strong> versión de la app, idioma del dispositivo y datos de diagnóstico necesarios para el funcionamiento.',
+      s2p2: '<strong>No recopilamos</strong> datos sensibles (salud, religión, orientación sexual, biometría) ni datos de ubicación en segundo plano.',
+      s3t: 'Cómo usamos tus datos',
+      s3l1: 'Crear y gestionar tu cuenta en OneBlink.',
+      s3l2: 'Mostrar el catálogo de productos, servicios y propiedades.',
+      s3l3: 'Procesar pedidos y coordinar entregas o reservas.',
+      s3l4: 'Publicar los anuncios que creás: los datos de contacto que cargás en una propiedad son visibles para otros usuarios (es necesario para que puedan contactarte).',
+      s3l5: 'Brindar soporte y responder consultas.',
+      s3l6: 'Prevenir fraude, abuso y uso indebido de la plataforma.',
+      s3l7: 'Cumplir obligaciones legales.',
+      s3p1: '<strong>No vendemos tus datos personales</strong> a terceros ni los usamos para publicidad dirigida.',
+      s4t: 'Con quién compartimos datos', s4p1: 'Solo compartimos datos con los proveedores imprescindibles para operar:',
+      s4l1: '<strong>Supabase:</strong> base de datos y autenticación. Tus datos se almacenan ahí con cifrado en tránsito y en reposo.',
+      s4l2: '<strong>elTOQUE:</strong> proveedor de tasas de cambio. No recibe tus datos personales.',
+      s4l3: '<strong>WhatsApp / enlaces externos:</strong> la App puede abrir WhatsApp para contactar vendedores o reservar. Fuera de la App rigen las políticas de ese servicio.',
+      s4l4: '<strong>Autoridades:</strong> si la ley lo exige, podemos revelar datos a autoridades competentes.',
+      s4h: '⚠️ Recordá: cuando publicás una propiedad, tus datos de contacto quedan visibles para otros usuarios de la App. No publiques información que no quieras exponer.',
+      s5t: 'Base legal del tratamiento', s5p1: 'Tratamos tus datos personales con las siguientes bases legales:',
+      s5l1: '<strong>Ejecución del contrato:</strong> crear la cuenta, procesar pedidos y prestar el servicio que solicitaste.',
+      s5l2: '<strong>Consentimiento:</strong> cuando nos autorizás a publicar contenido o procesar datos opcionales. Podés retirarlo en cualquier momento.',
+      s5l3: '<strong>Interés legítimo:</strong> mejorar la plataforma, prevenir fraude y garantizar la seguridad.',
+      s5l4: '<strong>Obligación legal:</strong> cuando debamos conservar o revelar datos por ley.',
+      s6t: 'Retención de datos', s6p1: 'Conservamos tus datos mientras tu cuenta esté activa. Al eliminar tu cuenta, borramos tu perfil y la información asociada. Podemos conservar ciertos datos durante el tiempo que exija la ley (por ejemplo, registros contables o fiscales) o para resolver disputas, en cuyo caso se mantienen mínimos y bloqueados.',
+      s7t: 'Seguridad', s7p1: 'Aplicamos medidas técnicas y organizativas: cifrado en tránsito y en reposo, autenticación segura, control de acceso por usuario y políticas de seguridad a nivel de fila (RLS) en la base de datos. Ningún sistema es 100% seguro, pero trabajamos continuamente para proteger tu información.',
+      s8t: 'Tus derechos', s8p1: 'Podés ejercer los siguientes derechos:',
+      s8l1: '<strong>Acceso:</strong> conocer qué datos tenemos tuyos.',
+      s8l2: '<strong>Rectificación:</strong> corregir datos inexactos desde tu perfil.',
+      s8l3: '<strong>Supresión:</strong> eliminar tu cuenta y tus datos desde la App (Ajustes → Eliminar cuenta).',
+      s8l4: '<strong>Portabilidad y oposición:</strong> donde aplique, pedir una copia de tus datos o limitar su uso.',
+      s8p2: 'Para ejercer cualquiera de estos derechos, escribinos al correo de contacto. Respondemos dentro de un plazo razonable (máximo 30 días).',
+      s9t: 'Menores de edad', s9p1: 'La App está dirigida a personas mayores de 18 años. No recopilamos intencionalmente datos de menores. Si tenés motivos para creer que un menor nos proporcionó datos, contactanos y los eliminaremos.',
+      s10t: 'Cookies y tecnología', s10p1: 'La App no utiliza cookies de seguimiento ni publicidad. Podemos almacenar localmente en tu dispositivo preferencias (como el idioma) y datos de sesión necesarios para el funcionamiento. Esta página web no usa cookies analíticas.',
+      s11t: 'Transferencias internacionales', s11p1: 'Los datos se almacenan en servicios en la nube (Supabase) cuyos servidores pueden ubicarse fuera de Cuba. Al usar la App, aceptás este tratamiento internacional, siempre con medidas de seguridad y cifrado.',
+      s12t: 'Cambios a esta política', s12p1: 'Podemos actualizar esta política cuando sea necesario. La versión vigente se publica siempre en esta página con su fecha. Si hay cambios importantes, lo avisamos dentro de la App.',
+      s13t: 'Contacto', s13p1: 'Ante cualquier consulta sobre esta política o tus datos, escribinos a:',
+      footer: 'OneBlink · LedexSoft © 2026 · Hecho con', footer2: 'en Cuba 🇨🇺'
+    },
+    en: {
+      htmlLang: 'en',
+      docTitle: 'OneBlink — Privacy Policy',
+      tocTitle: 'Contents',
+      toc1: '1. Introduction', toc2: '2. Data we collect', toc3: '3. How we use your data',
+      toc4: '4. Who we share data with', toc5: '5. Legal basis', toc6: '6. Data retention',
+      toc7: '7. Security', toc8: '8. Your rights', toc9: '9. Minors',
+      toc10: '10. Cookies & technology', toc11: '11. International transfers',
+      toc12: '12. Changes to this policy', toc13: '13. Contact',
+      badge: 'Privacy Policy',
+      title: 'Privacy Policy',
+      updated: 'Last updated: August 7, 2026',
+      lead: 'This Privacy Policy explains how LedexSoft ("we", "OneBlink") collects, uses and protects the information of people who use the OneBlink app ("the App"). By using the App you agree to this policy.',
+      s1t: 'Introduction', s1p1: 'OneBlink is a marketplace connecting buyers and sellers in Cuba: products, services and properties. For the App to work we need to process certain personal data. This policy applies to all information you provide when creating your account, browsing, buying, selling or publishing.',
+      s1p2: '"Personal data" means any information that can identify you, directly or indirectly: name, email, ID number, photos, etc.',
+      s2t: 'Data we collect', s2p1: 'We only collect data that you provide or that is generated while using the App:',
+      s2l1: '<strong>Account data:</strong> first and last name, email address, profile photo (optional) and identity document (Carnet de Identidad or CPF) when applicable.',
+      s2l2: '<strong>Profile data:</strong> country, town or location, delivery address and preferences you declare.',
+      s2l3: '<strong>Published content:</strong> property listings (photos, description, price, contact details you upload), reviews and messages.',
+      s2l4: '<strong>Order data:</strong> purchase history, orders placed and their status.',
+      s2l5: '<strong>Technical data:</strong> app version, device language and diagnostic data needed for operation.',
+      s2p2: '<strong>We do not collect</strong> sensitive data (health, religion, sexual orientation, biometrics) or background location data.',
+      s3t: 'How we use your data',
+      s3l1: 'To create and manage your OneBlink account.',
+      s3l2: 'To show the catalog of products, services and properties.',
+      s3l3: 'To process orders and coordinate deliveries or bookings.',
+      s3l4: 'To publish the listings you create: the contact details you upload to a property are visible to other users (necessary so they can reach you).',
+      s3l5: 'To provide support and answer questions.',
+      s3l6: 'To prevent fraud, abuse and misuse of the platform.',
+      s3l7: 'To comply with legal obligations.',
+      s3p1: '<strong>We do not sell your personal data</strong> to third parties nor use it for targeted advertising.',
+      s4t: 'Who we share data with', s4p1: 'We only share data with the essential providers needed to operate:',
+      s4l1: '<strong>Supabase:</strong> database and authentication. Your data is stored there encrypted in transit and at rest.',
+      s4l2: '<strong>elTOQUE:</strong> exchange rate provider. It does not receive your personal data.',
+      s4l3: '<strong>WhatsApp / external links:</strong> the App may open WhatsApp to contact sellers or book services. Outside the App, that service\'s policies apply.',
+      s4l4: '<strong>Authorities:</strong> if required by law, we may disclose data to competent authorities.',
+      s4h: '⚠️ Remember: when you publish a property, your contact details become visible to other users of the App. Do not publish information you do not want exposed.',
+      s5t: 'Legal basis for processing', s5p1: 'We process your personal data under the following legal bases:',
+      s5l1: '<strong>Contract performance:</strong> creating the account, processing orders and providing the service you requested.',
+      s5l2: '<strong>Consent:</strong> when you authorize us to publish content or process optional data. You can withdraw it at any time.',
+      s5l3: '<strong>Legitimate interest:</strong> improving the platform, preventing fraud and ensuring security.',
+      s5l4: '<strong>Legal obligation:</strong> when we must retain or disclose data by law.',
+      s6t: 'Data retention', s6p1: 'We keep your data while your account is active. When you delete your account, we erase your profile and associated information. We may keep certain data for the time required by law (e.g. accounting or tax records) or to resolve disputes, in which case it is kept minimal and blocked.',
+      s7t: 'Security', s7p1: 'We apply technical and organizational measures: encryption in transit and at rest, secure authentication, per-user access control and row-level security policies (RLS) in the database. No system is 100% secure, but we work continuously to protect your information.',
+      s8t: 'Your rights', s8p1: 'You can exercise the following rights:',
+      s8l1: '<strong>Access:</strong> know what data we hold about you.',
+      s8l2: '<strong>Rectification:</strong> correct inaccurate data from your profile.',
+      s8l3: '<strong>Deletion:</strong> delete your account and data from the App (Settings → Delete account).',
+      s8l4: '<strong>Portability and objection:</strong> where applicable, request a copy of your data or limit its use.',
+      s8p2: 'To exercise any of these rights, write to the contact email. We respond within a reasonable time (maximum 30 days).',
+      s9t: 'Minors', s9p1: 'The App is intended for people over 18. We do not intentionally collect data from minors. If you have reason to believe a minor provided us data, contact us and we will delete it.',
+      s10t: 'Cookies & technology', s10p1: 'The App does not use tracking cookies or advertising. We may store preferences locally on your device (such as language) and session data needed for operation. This website does not use analytics cookies.',
+      s11t: 'International transfers', s11p1: 'Data is stored in cloud services (Supabase) whose servers may be located outside Cuba. By using the App, you accept this international processing, always with security measures and encryption.',
+      s12t: 'Changes to this policy', s12p1: 'We may update this policy when necessary. The current version is always published on this page with its date. If there are significant changes, we will notify you within the App.',
+      s13t: 'Contact', s13p1: 'For any questions about this policy or your data, write to us at:',
+      footer: 'OneBlink · LedexSoft © 2026 · Made with', footer2: 'in Cuba 🇨🇺'
+    },
+    pt: {
+      htmlLang: 'pt',
+      docTitle: 'OneBlink — Política de Privacidade',
+      tocTitle: 'Conteúdo',
+      toc1: '1. Introdução', toc2: '2. Dados que coletamos', toc3: '3. Como usamos seus dados',
+      toc4: '4. Com quem compartilhamos', toc5: '5. Base legal', toc6: '6. Retenção de dados',
+      toc7: '7. Segurança', toc8: '8. Seus direitos', toc9: '9. Menores de idade',
+      toc10: '10. Cookies e tecnologia', toc11: '11. Transferências internacionais',
+      toc12: '12. Alterações nesta política', toc13: '13. Contato',
+      badge: 'Política de Privacidade',
+      title: 'Política de Privacidade',
+      updated: 'Última atualização: 7 de agosto de 2026',
+      lead: 'Esta Política de Privacidade explica como a LedexSoft ("nós", "OneBlink") coleta, usa e protege as informações das pessoas que usam o aplicativo OneBlink ("o App"). Ao usar o App, você concorda com esta política.',
+      s1t: 'Introdução', s1p1: 'OneBlink é um marketplace que conecta compradores e vendedores em Cuba: produtos, serviços e propriedades. Para que o App funcione, precisamos tratar certos dados pessoais. Esta política se aplica a todas as informações que você fornece ao criar sua conta, navegar, comprar, vender ou publicar.',
+      s1p2: '"Dados pessoais" significa qualquer informação que possa identificá-lo, direta ou indiretamente: nome, e-mail, número de documento, fotos, etc.',
+      s2t: 'Dados que coletamos', s2p1: 'Coletamos apenas os dados que você fornece ou que são gerados ao usar o App:',
+      s2l1: '<strong>Dados da conta:</strong> nome, sobrenome, e-mail, foto de perfil (opcional) e documento de identidade (Carnet de Identidad ou CPF) quando aplicável.',
+      s2l2: '<strong>Dados do perfil:</strong> país, cidade ou localização, endereço de entrega e preferências declaradas.',
+      s2l3: '<strong>Conteúdo publicado:</strong> anúncios de propriedades (fotos, descrição, preço, dados de contato que você envia), avaliações e mensagens.',
+      s2l4: '<strong>Dados de pedidos:</strong> histórico de compras, pedidos realizados e seu status.',
+      s2l5: '<strong>Dados técnicos:</strong> versão do app, idioma do dispositivo e dados de diagnóstico necessários para o funcionamento.',
+      s2p2: '<strong>Não coletamos</strong> dados sensíveis (saúde, religião, orientação sexual, biometria) nem dados de localização em segundo plano.',
+      s3t: 'Como usamos seus dados',
+      s3l1: 'Criar e gerenciar sua conta no OneBlink.',
+      s3l2: 'Mostrar o catálogo de produtos, serviços e propriedades.',
+      s3l3: 'Processar pedidos e coordenar entregas ou reservas.',
+      s3l4: 'Publicar os anúncios que você cria: os dados de contato que você envia em uma propriedade ficam visíveis para outros usuários (necessário para que possam entrar em contato).',
+      s3l5: 'Prestar suporte e responder dúvidas.',
+      s3l6: 'Prevenir fraude, abuso e uso indevido da plataforma.',
+      s3l7: 'Cumprir obrigações legais.',
+      s3p1: '<strong>Não vendemos seus dados pessoais</strong> a terceiros nem os usamos para publicidade direcionada.',
+      s4t: 'Com quem compartilhamos dados', s4p1: 'Compartilhamos dados apenas com os provedores essenciais para operar:',
+      s4l1: '<strong>Supabase:</strong> banco de dados e autenticação. Seus dados são armazenados lá com criptografia em trânsito e em repouso.',
+      s4l2: '<strong>elTOQUE:</strong> provedor de taxas de câmbio. Não recebe seus dados pessoais.',
+      s4l3: '<strong>WhatsApp / links externos:</strong> o App pode abrir o WhatsApp para contatar vendedores ou reservar serviços. Fora do App, aplicam-se as políticas desse serviço.',
+      s4l4: '<strong>Autoridades:</strong> se a lei exigir, podemos divulgar dados a autoridades competentes.',
+      s4h: '⚠️ Lembre-se: ao publicar uma propriedade, seus dados de contato ficam visíveis para outros usuários do App. Não publique informações que não queira expor.',
+      s5t: 'Base legal do tratamento', s5p1: 'Tratamos seus dados pessoais com as seguintes bases legais:',
+      s5l1: '<strong>Execução do contrato:</strong> criar a conta, processar pedidos e prestar o serviço solicitado.',
+      s5l2: '<strong>Consentimento:</strong> quando você autoriza a publicação de conteúdo ou o tratamento de dados opcionais. Pode retirá-lo a qualquer momento.',
+      s5l3: '<strong>Interesse legítimo:</strong> melhorar a plataforma, prevenir fraudes e garantir a segurança.',
+      s5l4: '<strong>Obrigação legal:</strong> quando precisamos reter ou divulgar dados por lei.',
+      s6t: 'Retenção de dados', s6p1: 'Mantemos seus dados enquanto sua conta estiver ativa. Ao excluir sua conta, apagamos seu perfil e as informações associadas. Podemos manter certos dados pelo tempo exigido por lei (por exemplo, registros contábeis ou fiscais) ou para resolver disputas, caso em que ficam mínimos e bloqueados.',
+      s7t: 'Segurança', s7p1: 'Aplicamos medidas técnicas e organizacionais: criptografia em trânsito e em repouso, autenticação segura, controle de acesso por usuário e políticas de segurança em nível de linha (RLS) no banco de dados. Nenhum sistema é 100% seguro, mas trabalhamos continuamente para proteger suas informações.',
+      s8t: 'Seus direitos', s8p1: 'Você pode exercer os seguintes direitos:',
+      s8l1: '<strong>Acesso:</strong> saber quais dados temos sobre você.',
+      s8l2: '<strong>Retificação:</strong> corrigir dados imprecisos pelo seu perfil.',
+      s8l3: '<strong>Exclusão:</strong> excluir sua conta e seus dados pelo App (Ajustes → Excluir conta).',
+      s8l4: '<strong>Portabilidade e oposição:</strong> onde aplicável, solicitar uma cópia dos seus dados ou limitar seu uso.',
+      s8p2: 'Para exercer qualquer um desses direitos, escreva para o e-mail de contato. Respondemos em prazo razoável (máximo 30 dias).',
+      s9t: 'Menores de idade', s9p1: 'O App é destinado a maiores de 18 anos. Não coletamos intencionalmente dados de menores. Se você tiver motivos para acreditar que um menor nos forneceu dados, entre em contato e os excluiremos.',
+      s10t: 'Cookies e tecnologia', s10p1: 'O App não usa cookies de rastreamento nem publicidade. Podemos armazenar localmente no seu dispositivo preferências (como idioma) e dados de sessão necessários ao funcionamento. Este site não usa cookies analíticos.',
+      s11t: 'Transferências internacionais', s11p1: 'Os dados são armazenados em serviços de nuvem (Supabase) cujos servidores podem estar fora de Cuba. Ao usar o App, você aceita esse tratamento internacional, sempre com medidas de segurança e criptografia.',
+      s12t: 'Alterações nesta política', s12p1: 'Podemos atualizar esta política quando necessário. A versão vigente é sempre publicada nesta página com sua data. Se houver mudanças importantes, avisamos dentro do App.',
+      s13t: 'Contato', s13p1: 'Para qualquer dúvida sobre esta política ou seus dados, escreva para:',
+      footer: 'OneBlink · LedexSoft © 2026 · Feito com', footer2: 'em Cuba 🇨🇺'
+    }
+  };
+
+  // ── Detección de idioma del navegador ──
+  function detectLang() {
+    const stored = localStorage.getItem('ob-lang');
+    if (stored && I18N[stored]) return stored;
+    const nav = (navigator.language || navigator.languages?.[0] || 'es').toLowerCase();
+    if (nav.startsWith('pt')) return 'pt';
+    if (nav.startsWith('en')) return 'en';
+    return 'es'; // default: español
+  }
+
+  // ── Aplicar idioma ──
+  function applyLang(lang) {
+    const t = I18N[lang];
+    document.documentElement.lang = t.htmlLang;
+    document.title = t.docTitle;
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    document.querySelectorAll('.lang-switch button').forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    localStorage.setItem('ob-lang', lang);
+  }
+
+  // ── Init + switch manual ──
+  document.querySelectorAll('.lang-switch button').forEach((btn) => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
+  applyLang(detectLang());
+
+  // ── TOC: resaltar sección activa al hacer scroll ──
+  const tocLinks = document.querySelectorAll('nav.toc a');
+  const sections = [...tocLinks].map((a) => document.querySelector(a.getAttribute('href')));
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach((a) =>
+            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id)
+          );
+        }
+      });
+    },
+    { rootMargin: '-20% 0px -70% 0px' }
+  );
+  sections.forEach((s) => s && observer.observe(s));
+</script>
 </body>
 </html>
