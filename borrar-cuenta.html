@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CumaShop — Borrado de cuenta / Account Deletion</title>
+  <meta name="description" content="Cómo borrar tu cuenta y tus datos en CumaShop. How to delete your account and data on CumaShop, Cuba's marketplace." />
+  <style>
+    :root {
+      --primary: #7C4DFF;
+      --primary-dark: #5E35B1;
+      --primary-soft: #EDE7FF;
+      --bg: #F7F7FB;
+      --surface: #FFFFFF;
+      --text: #17172B;
+      --text-soft: #5A5A72;
+      --border: #E5E5F0;
+      --radius: 14px;
+      --shadow: 0 2px 12px rgba(94, 53, 177, 0.06);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #7C4DFF 0%, #4A1FBF 100%);
+      color: #fff;
+      padding: 20px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 2px 16px rgba(74, 31, 191, 0.35);
+    }
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-mark {
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+    }
+    .logo span { color: #D9CBFF; }
+    .lang-switch {
+      display: flex;
+      gap: 4px;
+      background: rgba(255,255,255,0.14);
+      padding: 4px;
+      border-radius: 12px;
+    }
+    .lang-switch button {
+      border: none;
+      background: transparent;
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    .lang-switch button:hover { color: #fff; }
+    .lang-switch button.active {
+      background: #fff;
+      color: var(--primary-dark);
+    }
+
+    /* ── Layout ── */
+    .layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .layout { grid-template-columns: 1fr; }
+      nav.toc { position: static; max-height: none; }
+    }
+
+    /* ── TOC ── */
+    nav.toc {
+      position: sticky;
+      top: 96px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+    nav.toc h3 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+    nav.toc a {
+      display: block;
+      padding: 6px 10px;
+      border-radius: 8px;
+      color: var(--text-soft);
+      text-decoration: none;
+      font-size: 13.5px;
+      border-left: 3px solid transparent;
+      transition: all 0.12s;
+    }
+    nav.toc a:hover { background: var(--primary-soft); color: var(--primary-dark); }
+    nav.toc a.active {
+      border-left-color: var(--primary);
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    /* ── Content ── */
+    .content { min-width: 0; }
+    .hero-card {
+      background: linear-gradient(135deg, var(--surface) 0%, #F3EEFF 100%);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px 32px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+    .hero-card .badge {
+      display: inline-block;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .hero-card h1 { font-size: 26px; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .hero-card .updated {
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-bottom: 14px;
+    }
+    .hero-card .lead { font-size: 15px; color: var(--text-soft); }
+
+    section.card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px 30px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+      scroll-margin-top: 90px;
+    }
+    section.card h2 {
+      font-size: 18px;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section.card h2 .num {
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    section.card h3 { font-size: 15px; margin: 16px 0 6px; color: var(--text); }
+    section.card p { margin-bottom: 12px; font-size: 14.5px; }
+    section.card ul { padding-left: 22px; margin-bottom: 12px; }
+    section.card li { margin-bottom: 7px; font-size: 14.5px; }
+    section.card strong { color: var(--text); }
+    section.card a { color: var(--primary); }
+    .highlight {
+      background: #FFF8E6;
+      border: 1px solid #F0DFA8;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 13.5px;
+      margin: 12px 0;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 13px;
+      padding: 28px 20px;
+      border-top: 1px solid var(--border);
+    }
+    footer .heart { color: #E5484D; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-mark">⚡</span>
+      <span>One<span>Blink</span></span>
+    </div>
+    <div class="lang-switch" role="group" aria-label="Idioma / Language / Idioma">
+      <button data-lang="es" class="active">ES</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="pt">PT</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" id="toc">
+    <h3 data-i18n="tocTitle">Contenido</h3>
+    <a href="#app" data-i18n="toc1">1. Borrar desde la App</a>
+    <a href="#opciones" data-i18n="toc2">2. Dos opciones de borrado</a>
+    <a href="#correo" data-i18n="toc3">3. Solicitar borrado por correo</a>
+    <a href="#alcance" data-i18n="toc4">4. Qué se elimina y qué se conserva</a>
+    <a href="#plazos" data-i18n="toc5">5. Plazos y confirmación</a>
+    <a href="#ayuda" data-i18n="toc6">6. Ayuda</a>
+  </nav>
+
+  <div class="content">
+
+    <div class="hero-card">
+      <span class="badge" data-i18n="badge">Borrado de cuenta</span>
+      <h1 data-i18n="title">Borrar tu cuenta y tus datos</h1>
+      <p class="updated" data-i18n="updated">Última actualización: 12 de agosto de 2026</p>
+      <p class="lead" data-i18n="lead">
+        CumaShop te permite borrar tus datos personales y tu cuenta en cualquier
+        momento, desde la App o escribiéndonos por correo. Esta página explica las
+        opciones disponibles y qué ocurre con tus datos después del borrado.
+      </p>
+    </div>
+
+    <section class="card" id="app">
+      <h2><span class="num">1</span><span data-i18n="s1t">Borrar desde la App</span></h2>
+      <p data-i18n="s1p1">
+        La forma más rápida es desde la propia App, sin contacto humano:
+      </p>
+      <ul>
+        <li data-i18n="s1l1">Abrí CumaShop → <strong>Ajustes</strong> → <strong>Editar perfil</strong> → <strong>Zona de peligro</strong>.</li>
+        <li data-i18n="s1l2">Elegí <strong>"Borrar datos recopilados"</strong> o <strong>"Borrar cuenta permanentemente"</strong> (ver diferencia en la sección 2).</li>
+        <li data-i18n="s1l3">Ambas opciones piden confirmación y se procesan al instante.</li>
+      </ul>
+      <p data-i18n="s1p2">
+        Si no podés entrar a tu cuenta, usá la opción por correo de la sección 3.
+      </p>
+    </section>
+
+    <section class="card" id="opciones">
+      <h2><span class="num">2</span><span data-i18n="s2t">Dos opciones de borrado</span></h2>
+      <ul>
+        <li data-i18n="s2l1"><strong>Borrar datos recopilados:</strong> elimina tus datos personales y de actividad (pedidos, direcciones, carrito, lista de deseos, reseñas, historial de sesiones, solicitudes y demás) pero <strong>conserva tu cuenta</strong>, tu correo y tus créditos.</li>
+        <li data-i18n="s2l2"><strong>Borrar cuenta permanentemente:</strong> elimina la cuenta y todos los datos asociados. Es <strong>irreversible</strong>; el correo queda libre para crear una cuenta nueva si algún día volvés.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="correo">
+      <h2><span class="num">3</span><span data-i18n="s3t">Solicitar borrado por correo</span></h2>
+      <p data-i18n="s3p1">
+        Si preferís no usar la App (o no podés entrar), escribí a
+        <strong>legal@oneblink.app</strong> desde el correo asociado a tu cuenta,
+        con el asunto <strong>"Solicitud de borrado de cuenta"</strong> e indicando
+        si querés borrar solo los datos o la cuenta completa.
+      </p>
+      <p data-i18n="s3p2">
+        Verificamos que el correo coincida con la cuenta antes de procesar la
+        solicitud. Respondemos dentro de un plazo razonable (máximo 30 días).
+      </p>
+    </section>
+
+    <section class="card" id="alcance">
+      <h2><span class="num">4</span><span data-i18n="s4t">Qué se elimina y qué se conserva</span></h2>
+      <p data-i18n="s4p1">Al borrar tu cuenta se eliminan:</p>
+      <ul>
+        <li data-i18n="s4l1">Tu perfil: nombre, foto, dirección, preferencias y datos de contacto.</li>
+        <li data-i18n="s4l2">Pedidos e historial de compras, direcciones guardadas, carrito y lista de deseos.</li>
+        <li data-i18n="s4l3">Reseñas, calificaciones, feedback, reportes y mensajes.</li>
+        <li data-i18n="s4l4">Historial de sesiones, solicitudes de vendedor y las fotos que hayas subido.</li>
+      </ul>
+      <p data-i18n="s4p2">
+        Se conserva únicamente lo que exige la ley (por ejemplo, registros contables
+        o fiscales) durante el plazo legal aplicable. Esos datos se mantienen
+        mínimos y bloqueados, y no se usan para ningún otro fin.
+      </p>
+      <div class="highlight" data-i18n="s4h">
+        ⚠️ El borrado es inmediato, pero algunas copias (por ejemplo, respaldos
+        técnicos o resultados de búsqueda ya generados) pueden tardar hasta 30 días
+        en purgarse por completo.
+      </div>
+    </section>
+
+    <section class="card" id="plazos">
+      <h2><span class="num">5</span><span data-i18n="s5t">Plazos y confirmación</span></h2>
+      <ul>
+        <li data-i18n="s5l1">El borrado se procesa en el momento en que confirmás.</li>
+        <li data-i18n="s5l2">La cuenta desaparece de inmediato y no podés volver a entrar con ella.</li>
+        <li data-i18n="s5l3">Los respaldos técnicos se purgan en un máximo de 30 días.</li>
+        <li data-i18n="s5l4">La App te muestra una confirmación cuando el proceso termina.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="ayuda">
+      <h2><span class="num">6</span><span data-i18n="s6t">Ayuda</span></h2>
+      <p data-i18n="s6p1">
+        Ante cualquier duda sobre el borrado de tu cuenta o tus datos, escribinos a
+        <strong>legal@oneblink.app</strong>.
+      </p>
+      <p data-i18n="s6p2">
+        También podés consultar nuestra
+        <a href="privacidad.html" data-i18n="s6link">Política de Privacidad completa</a>.
+      </p>
+    </section>
+
+  </div>
+</div>
+
+<footer>
+  <span data-i18n="footer">CumaShop · LedexSoft © 2026 · Hecho con</span> <span class="heart">♥</span> <span data-i18n="footer2">en Cuba 🇨🇺</span>
+</footer>
+
+<script>
+  // ── Traducciones (es / en / pt) ──
+  const I18N = {
+    es: {
+      htmlLang: 'es',
+      docTitle: 'CumaShop — Borrado de cuenta',
+      tocTitle: 'Contenido',
+      toc1: '1. Borrar desde la App', toc2: '2. Dos opciones de borrado',
+      toc3: '3. Solicitar borrado por correo', toc4: '4. Qué se elimina y qué se conserva',
+      toc5: '5. Plazos y confirmación', toc6: '6. Ayuda',
+      badge: 'Borrado de cuenta',
+      title: 'Borrar tu cuenta y tus datos',
+      updated: 'Última actualización: 12 de agosto de 2026',
+      lead: 'CumaShop te permite borrar tus datos personales y tu cuenta en cualquier momento, desde la App o escribiéndonos por correo. Esta página explica las opciones disponibles y qué ocurre con tus datos después del borrado.',
+      s1t: 'Borrar desde la App',
+      s1p1: 'La forma más rápida es desde la propia App, sin contacto humano:',
+      s1l1: 'Abrí CumaShop → <strong>Ajustes</strong> → <strong>Editar perfil</strong> → <strong>Zona de peligro</strong>.',
+      s1l2: 'Elegí <strong>"Borrar datos recopilados"</strong> o <strong>"Borrar cuenta permanentemente"</strong> (ver diferencia en la sección 2).',
+      s1l3: 'Ambas opciones piden confirmación y se procesan al instante.',
+      s1p2: 'Si no podés entrar a tu cuenta, usá la opción por correo de la sección 3.',
+      s2t: 'Dos opciones de borrado',
+      s2l1: '<strong>Borrar datos recopilados:</strong> elimina tus datos personales y de actividad (pedidos, direcciones, carrito, lista de deseos, reseñas, historial de sesiones, solicitudes y demás) pero <strong>conserva tu cuenta</strong>, tu correo y tus créditos.',
+      s2l2: '<strong>Borrar cuenta permanentemente:</strong> elimina la cuenta y todos los datos asociados. Es <strong>irreversible</strong>; el correo queda libre para crear una cuenta nueva si algún día volvés.',
+      s3t: 'Solicitar borrado por correo',
+      s3p1: 'Si preferís no usar la App (o no podés entrar), escribí a <strong>legal@oneblink.app</strong> desde el correo asociado a tu cuenta, con el asunto <strong>"Solicitud de borrado de cuenta"</strong> e indicando si querés borrar solo los datos o la cuenta completa.',
+      s3p2: 'Verificamos que el correo coincida con la cuenta antes de procesar la solicitud. Respondemos dentro de un plazo razonable (máximo 30 días).',
+      s4t: 'Qué se elimina y qué se conserva',
+      s4p1: 'Al borrar tu cuenta se eliminan:',
+      s4l1: 'Tu perfil: nombre, foto, dirección, preferencias y datos de contacto.',
+      s4l2: 'Pedidos e historial de compras, direcciones guardadas, carrito y lista de deseos.',
+      s4l3: 'Reseñas, calificaciones, feedback, reportes y mensajes.',
+      s4l4: 'Historial de sesiones, solicitudes de vendedor y las fotos que hayas subido.',
+      s4p2: 'Se conserva únicamente lo que exige la ley (por ejemplo, registros contables o fiscales) durante el plazo legal aplicable. Esos datos se mantienen mínimos y bloqueados, y no se usan para ningún otro fin.',
+      s4h: '⚠️ El borrado es inmediato, pero algunas copias (por ejemplo, respaldos técnicos o resultados de búsqueda ya generados) pueden tardar hasta 30 días en purgarse por completo.',
+      s5t: 'Plazos y confirmación',
+      s5l1: 'El borrado se procesa en el momento en que confirmás.',
+      s5l2: 'La cuenta desaparece de inmediato y no podés volver a entrar con ella.',
+      s5l3: 'Los respaldos técnicos se purgan en un máximo de 30 días.',
+      s5l4: 'La App te muestra una confirmación cuando el proceso termina.',
+      s6t: 'Ayuda',
+      s6p1: 'Ante cualquier duda sobre el borrado de tu cuenta o tus datos, escribinos a <strong>legal@oneblink.app</strong>.',
+      s6p2: 'También podés consultar nuestra <a href="privacidad.html">Política de Privacidad completa</a>.',
+      s6link: 'Política de Privacidad completa',
+      footer: 'CumaShop · LedexSoft © 2026 · Hecho con', footer2: 'en Cuba 🇨🇺'
+    },
+    en: {
+      htmlLang: 'en',
+      docTitle: 'CumaShop — Account Deletion',
+      tocTitle: 'Contents',
+      toc1: '1. Delete from the App', toc2: '2. Two deletion options',
+      toc3: '3. Request deletion by email', toc4: '4. What is deleted and what is kept',
+      toc5: '5. Timing and confirmation', toc6: '6. Help',
+      badge: 'Account Deletion',
+      title: 'Delete your account and your data',
+      updated: 'Last updated: August 12, 2026',
+      lead: 'CumaShop lets you delete your personal data and your account at any time, from the App or by email. This page explains the available options and what happens to your data after deletion.',
+      s1t: 'Delete from the App',
+      s1p1: 'The fastest way is from the App itself, no human contact needed:',
+      s1l1: 'Open CumaShop → <strong>Settings</strong> → <strong>Edit profile</strong> → <strong>Danger zone</strong>.',
+      s1l2: 'Choose <strong>"Delete collected data"</strong> or <strong>"Delete account permanently"</strong> (see the difference in section 2).',
+      s1l3: 'Both options ask for confirmation and are processed instantly.',
+      s1p2: 'If you cannot sign in to your account, use the email option in section 3.',
+      s2t: 'Two deletion options',
+      s2l1: '<strong>Delete collected data:</strong> removes your personal and activity data (orders, addresses, cart, wishlist, reviews, session history, requests and more) but <strong>keeps your account</strong>, your email and your credits.',
+      s2l2: '<strong>Delete account permanently:</strong> deletes the account and all associated data. It is <strong>irreversible</strong>; the email becomes available to create a new account if you ever come back.',
+      s3t: 'Request deletion by email',
+      s3p1: 'If you prefer not to use the App (or cannot sign in), email <strong>legal@oneblink.app</strong> from the email address associated with your account, with the subject <strong>"Account deletion request"</strong> and let us know whether you want to delete only your data or the entire account.',
+      s3p2: 'We verify the email matches the account before processing the request. We reply within a reasonable period (30 days at the latest).',
+      s4t: 'What is deleted and what is kept',
+      s4p1: 'When you delete your account, the following is removed:',
+      s4l1: 'Your profile: name, photo, address, preferences and contact details.',
+      s4l2: 'Orders and purchase history, saved addresses, cart and wishlist.',
+      s4l3: 'Reviews, ratings, feedback, reports and messages.',
+      s4l4: 'Session history, seller requests and photos you uploaded.',
+      s4p2: 'Only what the law requires is kept (for example, accounting or tax records) for the applicable legal period. This data is kept to a minimum, locked down, and not used for any other purpose.',
+      s4h: '⚠️ Deletion is immediate, but some copies (for example, technical backups or already-generated search results) may take up to 30 days to be fully purged.',
+      s5t: 'Timing and confirmation',
+      s5l1: 'Deletion is processed as soon as you confirm.',
+      s5l2: 'The account disappears immediately and you can no longer sign in with it.',
+      s5l3: 'Technical backups are purged within 30 days at the latest.',
+      s5l4: 'The App shows a confirmation when the process is finished.',
+      s6t: 'Help',
+      s6p1: 'If you have any questions about deleting your account or your data, email <strong>legal@oneblink.app</strong>.',
+      s6p2: 'You can also read our <a href="privacidad.html">full Privacy Policy</a>.',
+      s6link: 'full Privacy Policy',
+      footer: 'CumaShop · LedexSoft © 2026 · Made with', footer2: 'in Cuba 🇨🇺'
+    },
+    pt: {
+      htmlLang: 'pt',
+      docTitle: 'CumaShop — Exclusão de conta',
+      tocTitle: 'Conteúdo',
+      toc1: '1. Excluir pelo App', toc2: '2. Duas opções de exclusão',
+      toc3: '3. Solicitar exclusão por e-mail', toc4: '4. O que é excluído e o que é mantido',
+      toc5: '5. Prazos e confirmação', toc6: '6. Ajuda',
+      badge: 'Exclusão de conta',
+      title: 'Exclua sua conta e seus dados',
+      updated: 'Última atualização: 12 de agosto de 2026',
+      lead: 'O CumaShop permite excluir seus dados pessoais e sua conta a qualquer momento, pelo App ou por e-mail. Esta página explica as opções disponíveis e o que acontece com seus dados após a exclusão.',
+      s1t: 'Excluir pelo App',
+      s1p1: 'A forma mais rápida é pelo próprio App, sem contato humano:',
+      s1l1: 'Abra o CumaShop → <strong>Ajustes</strong> → <strong>Editar perfil</strong> → <strong>Zona de perigo</strong>.',
+      s1l2: 'Escolha <strong>"Excluir dados coletados"</strong> ou <strong>"Excluir conta permanentemente"</strong> (veja a diferença na seção 2).',
+      s1l3: 'Ambas as opções pedem confirmação e são processadas na hora.',
+      s1p2: 'Se não conseguir entrar na sua conta, use a opção por e-mail da seção 3.',
+      s2t: 'Duas opções de exclusão',
+      s2l1: '<strong>Excluir dados coletados:</strong> remove seus dados pessoais e de atividade (pedidos, endereços, carrinho, lista de desejos, avaliações, histórico de sessões, solicitações e mais), mas <strong>mantém sua conta</strong>, seu e-mail e seus créditos.',
+      s2l2: '<strong>Excluir conta permanentemente:</strong> exclui a conta e todos os dados associados. É <strong>irreversível</strong>; o e-mail fica livre para criar uma conta nova se um dia você voltar.',
+      s3t: 'Solicitar exclusão por e-mail',
+      s3p1: 'Se preferir não usar o App (ou não conseguir entrar), escreva para <strong>legal@oneblink.app</strong> usando o e-mail associado à sua conta, com o assunto <strong>"Solicitação de exclusão de conta"</strong> e informando se quer excluir apenas os dados ou a conta completa.',
+      s3p2: 'Verificamos se o e-mail corresponde à conta antes de processar a solicitação. Respondemos dentro de um prazo razoável (no máximo 30 dias).',
+      s4t: 'O que é excluído e o que é mantido',
+      s4p1: 'Ao excluir sua conta, são removidos:',
+      s4l1: 'Seu perfil: nome, foto, endereço, preferências e dados de contato.',
+      s4l2: 'Pedidos e histórico de compras, endereços salvos, carrinho e lista de desejos.',
+      s4l3: 'Avaliações, classificações, feedback, denúncias e mensagens.',
+      s4l4: 'Histórico de sessões, solicitações de vendedor e fotos enviadas por você.',
+      s4p2: 'Apenas o que a lei exige é mantido (por exemplo, registros contábeis ou fiscais) pelo prazo legal aplicável. Esses dados ficam reduzidos ao mínimo, bloqueados e não são usados para nenhum outro fim.',
+      s4h: '⚠️ A exclusão é imediata, mas algumas cópias (por exemplo, backups técnicos ou resultados de busca já gerados) podem levar até 30 dias para serem totalmente eliminadas.',
+      s5t: 'Prazos e confirmação',
+      s5l1: 'A exclusão é processada no momento em que você confirma.',
+      s5l2: 'A conta desaparece imediatamente e você não consegue mais entrar com ela.',
+      s5l3: 'Os backups técnicos são eliminados em no máximo 30 dias.',
+      s5l4: 'O App mostra uma confirmação quando o processo termina.',
+      s6t: 'Ajuda',
+      s6p1: 'Em caso de dúvida sobre a exclusão da sua conta ou seus dados, escreva para <strong>legal@oneblink.app</strong>.',
+      s6p2: 'Você também pode consultar nossa <a href="privacidad.html">Política de Privacidade completa</a>.',
+      s6link: 'Política de Privacidade completa',
+      footer: 'CumaShop · LedexSoft © 2026 · Feito com', footer2: 'em Cuba 🇨🇺'
+    }
+  };
+
+  // ── Detección de idioma: URL (?lang=) > localStorage > navegador ──
+  function detectLang() {
+    const fromUrl = new URLSearchParams(location.search).get('lang');
+    if (fromUrl && I18N[fromUrl]) return fromUrl;
+    const stored = localStorage.getItem('ob-lang');
+    if (stored && I18N[stored]) return stored;
+    const nav = (navigator.language || navigator.languages?.[0] || 'es').toLowerCase();
+    if (nav.startsWith('pt')) return 'pt';
+    if (nav.startsWith('en')) return 'en';
+    return 'es'; // default: español
+  }
+
+  // ── Aplicar idioma ──
+  function applyLang(lang) {
+    const t = I18N[lang];
+    document.documentElement.lang = t.htmlLang;
+    document.title = t.docTitle;
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    document.querySelectorAll('.lang-switch button').forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    localStorage.setItem('ob-lang', lang);
+  }
+
+  // ── Init + switch manual ──
+  document.querySelectorAll('.lang-switch button').forEach((btn) => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
+  applyLang(detectLang());
+
+  // ── TOC: resaltar sección activa al hacer scroll ──
+  const tocLinks = document.querySelectorAll('nav.toc a');
+  const sections = [...tocLinks].map((a) => document.querySelector(a.getAttribute('href')));
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach((a) =>
+            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id)
+          );
+        }
+      });
+    },
+    { rootMargin: '-20% 0px -70% 0px' }
+  );
+  sections.forEach((s) => s && observer.observe(s));
+</script>
+</body>
+</html>
