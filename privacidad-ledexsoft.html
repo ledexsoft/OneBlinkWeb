@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LedexSoft — Política de Privacidad (Vendedores y Administradores)</title>
+  <meta name="description" content="Política de Privacidad de LedexSoft para vendedores y administradores del ecosistema CumaShop. Privacy Policy of LedexSoft for sellers and admins." />
+  <style>
+    :root {
+      --primary: #5856D6;
+      --primary-dark: #3F3D9E;
+      --primary-soft: #E9E9FB;
+      --bg: #F6F6FA;
+      --surface: #FFFFFF;
+      --text: #17172B;
+      --text-soft: #5A5A72;
+      --border: #E5E5F0;
+      --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: linear-gradient(135deg, #5856D6 0%, #3F3D9E 100%);
+      color: #fff;
+      padding: 18px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 2px 16px rgba(63, 61, 158, 0.3);
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .logo { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+    .logo-mark {
+      width: 30px; height: 30px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 10px;
+      display: grid; place-items: center;
+    }
+    .lang-switch {
+      display: flex; gap: 4px;
+      background: rgba(255,255,255,0.14);
+      padding: 4px; border-radius: 12px;
+    }
+    .lang-switch button {
+      border: none; background: transparent;
+      color: rgba(255,255,255,0.75);
+      font-size: 13px; font-weight: 700;
+      padding: 6px 12px; border-radius: 9px;
+      cursor: pointer; transition: all 0.15s;
+      font-family: inherit;
+    }
+    .lang-switch button:hover { color: #fff; }
+    .lang-switch button.active { background: #fff; color: var(--primary-dark); }
+    main { flex: 1; }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+    }
+    h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+    .updated { font-size: 13px; color: var(--text-soft); margin-bottom: 24px; }
+    h2 { font-size: 19px; font-weight: 700; margin: 28px 0 10px; }
+    p { font-size: 14.5px; margin-bottom: 10px; }
+    ul, ol { margin: 0 0 12px 22px; }
+    li { font-size: 14.5px; margin-bottom: 6px; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin-bottom: 10px;
+    }
+    .toc p { font-weight: 700; margin-bottom: 8px; font-size: 14px; }
+    .toc a { display: block; font-size: 13.5px; margin-bottom: 4px; }
+    .box {
+      background: var(--primary-soft);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin: 14px 0;
+      font-size: 13.5px;
+    }
+    footer {
+      margin-top: auto;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 22px 20px;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo"><span class="logo-mark">⚡</span> Ledex<span>Soft</span></div>
+    <div class="lang-switch" role="group" aria-label="Idioma / Language / Idioma">
+      <button data-lang="es" class="active">ES</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="pt">PT</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1 data-i18n="title">Política de Privacidad — LedexSoft</h1>
+    <p class="updated" data-i18n="updated">Vigente desde el 13 de agosto de 2026 · Vendedores y administradores del ecosistema CumaShop</p>
+
+    <div class="toc">
+      <p data-i18n="tocTitle">Contenido</p>
+      <a href="#intro" data-i18n="toc1">1. Introducción</a>
+      <a href="#quienes" data-i18n="toc2">2. ¿Quiénes somos?</a>
+      <a href="#datos" data-i18n="toc3">3. Datos que recopilamos</a>
+      <a href="#uso" data-i18n="toc4">4. Cómo usamos tus datos</a>
+      <a href="#compartir" data-i18n="toc5">5. Con quién compartimos datos</a>
+      <a href="#seguridad" data-i18n="toc6">6. Seguridad</a>
+      <a href="#retencion" data-i18n="toc7">7. Retención</a>
+      <a href="#derechos" data-i18n="toc8">8. Tus derechos</a>
+      <a href="#contacto" data-i18n="toc9">9. Contacto</a>
+    </div>
+
+    <h2 id="intro" data-i18n="s1t">1. Introducción</h2>
+    <p data-i18n="s1p1">Esta Política de Privacidad explica cómo LedexSoft ("nosotros", "LedexSoft") recopila, usa y protege la información de las personas que usan la plataforma LedexSoft ("la Plataforma"), destinada a vendedores y administradores del ecosistema CumaShop. Al usar la Plataforma aceptás esta política.</p>
+    <p data-i18n="s1p2">La Plataforma es una herramienta de gestión interna: permite a vendedores publicar ofertas y controlar stock, y a administradores gestionar el marketplace (catálogo, pedidos, denuncias, solicitudes y atención al cliente).</p>
+
+    <h2 id="quienes" data-i18n="s2t">2. ¿Quiénes somos?</h2>
+    <p data-i18n="s2p1">LedexSoft es una empresa de sistemas y negocios (Cuba / Brasil) que opera el ecosistema CumaShop: un marketplace multiplataforma que conecta compradores y vendedores. La Plataforma LedexSoft es la capa de gestión de ese ecosistema.</p>
+
+    <h2 id="datos" data-i18n="s3t">3. Datos que recopilamos</h2>
+    <p data-i18n="s3p1">Según tu rol, tratamos los siguientes datos:</p>
+    <ul>
+      <li data-i18n="s3l1"><strong>Identificación:</strong> nombre, correo electrónico (de tu cuenta Google), teléfono.</li>
+      <li data-i18n="s3l2"><strong>Del negocio (vendedores):</strong> nombre comercial, NIT, tarjetas/cuentas fiscales, CNPJ, Pix, dirección, actividad, logo.</li>
+      <li data-i18n="s3l3"><strong>Operativos:</strong> productos, ofertas, precios, stock físico y virtual, pedidos, ventas.</li>
+      <li data-i18n="s3l4"><strong>De gestión (administradores):</strong> datos de vendedores y clientes a los que se accede para moderar, atender y operar la plataforma.</li>
+      <li data-i18n="s3l5"><strong>Generados por usuarios:</strong> denuncias, consultas de atención al cliente, reportes de errores, feedback y solicitudes de colaboración que gestionás desde la Plataforma.</li>
+    </ul>
+    <div class="box" data-i18n="s3box">La Plataforma se usa con la cuenta de Google autorizada. No recopilamos datos de navegación de terceros ni rastreamos actividad fuera de la Plataforma.</div>
+
+    <h2 id="uso" data-i18n="s4t">4. Cómo usamos tus datos</h2>
+    <ul>
+      <li data-i18n="s4l1">Crear y gestionar tu cuenta y rol (vendedor o administrador).</li>
+      <li data-i18n="s4l2">Permitir publicar ofertas, gestionar precios, stock y pedidos.</li>
+      <li data-i18n="s4l3">Operar el marketplace: procesar pedidos, entregas, cancelaciones y devoluciones.</li>
+      <li data-i18n="s4l4">Moderar contenido (denuncias, UGC) y atender solicitudes de clientes.</li>
+      <li data-i18n="s4l5">Cumplir obligaciones legales y fiscales.</li>
+    </ul>
+
+    <h2 id="compartir" data-i18n="s5t">5. Con quién compartimos datos</h2>
+    <ul>
+      <li data-i18n="s5l1"><strong>Dentro del ecosistema:</strong> vendedores ven sus propias ofertas y pedidos; administradores ven la información necesaria para operar (nunca datos de pago completos de clientes).</li>
+      <li data-i18n="s5l2"><strong>Proveedores técnicos:</strong> Google (autenticación), Supabase (base de datos), Cloudflare R2 (imágenes). Cada uno bajo sus propias políticas.</li>
+      <li data-i18n="s5l3"><strong>Autoridades:</strong> solo cuando la ley lo exija.</li>
+    </ul>
+    <p data-i18n="s5p1">No vendemos tus datos personales a terceros. No usamos tus datos para publicidad de terceros.</p>
+
+    <h2 id="seguridad" data-i18n="s6t">6. Seguridad</h2>
+    <p data-i18n="s6p1">Protegemos los datos con cifrado en tránsito (HTTPS), control de acceso por roles (vendedor vs administrador), autenticación con Google y políticas de seguridad a nivel de base de datos (RLS). El acceso a la Plataforma está restringido a personal autorizado.</p>
+    <p data-i18n="s6p2">Como toda herramienta con datos sensibles, el acceso a la Plataforma debe protegerse: no compartas tu cuenta y usá contraseñas seguras en tu cuenta de Google.</p>
+
+    <h2 id="retencion" data-i18n="s7t">7. Retención</h2>
+    <p data-i18n="s7p1">Conservamos tus datos mientras tu cuenta esté activa y durante el tiempo que la ley exija para obligaciones fiscales y contables. Al cerrar tu cuenta de vendedor, los datos operativos se desvinculan y se conservan solo lo requerido legalmente.</p>
+
+    <h2 id="derechos" data-i18n="s8t">8. Tus derechos</h2>
+    <p data-i18n="s8p1">Podés solicitar en cualquier momento:</p>
+    <ul>
+      <li data-i18n="s8l1">Acceso a tus datos personales.</li>
+      <li data-i18n="s8l2">Corrección de datos inexactos.</li>
+      <li data-i18n="s8l3">Eliminación de tu cuenta y datos (vendedores: a través del administrador del ecosistema).</li>
+    </ul>
+    <p data-i18n="s8p2">Escribinos a <a href="mailto:legal@oneblink.app">legal@oneblink.app</a> para ejercer estos derechos.</p>
+
+    <h2 id="contacto" data-i18n="s9t">9. Contacto</h2>
+    <p data-i18n="s9p1">Para preguntas sobre esta política o el tratamiento de tus datos, contactanos en <a href="mailto:legal@oneblink.app">legal@oneblink.app</a>.</p>
+    <p data-i18n="s9p2">Podemos actualizar esta política; los cambios se publicarán en esta página con su fecha de vigencia.</p>
+  </div>
+</main>
+
+<footer>
+  <span data-i18n="footer">LedexSoft © 2026 · Ecosistema CumaShop · Hecho con</span> ♥ <span data-i18n="footer2">en Cuba 🇨🇺</span> ·
+  <a class="lang-link" href="privacidad-ledexsoft.html" data-i18n="footerLink">Privacidad</a> ·
+  <a class="lang-link" href="ledexsoft.html" data-i18n="footerBack">Volver a LedexSoft</a>
+</footer>
+
+<script>
+  // ── Traducciones (es / en / pt) ──
+  const I18N = {
+    es: {
+      docTitle: 'LedexSoft — Política de Privacidad',
+      title: 'Política de Privacidad — LedexSoft',
+      updated: 'Vigente desde el 13 de agosto de 2026 · Vendedores y administradores del ecosistema CumaShop',
+      tocTitle: 'Contenido',
+      toc1: '1. Introducción', toc2: '2. ¿Quiénes somos?', toc3: '3. Datos que recopilamos',
+      toc4: '4. Cómo usamos tus datos', toc5: '5. Con quién compartimos datos',
+      toc6: '6. Seguridad', toc7: '7. Retención', toc8: '8. Tus derechos', toc9: '9. Contacto',
+      s1t: '1. Introducción',
+      s1p1: 'Esta Política de Privacidad explica cómo LedexSoft ("nosotros", "LedexSoft") recopila, usa y protege la información de las personas que usan la plataforma LedexSoft ("la Plataforma"), destinada a vendedores y administradores del ecosistema CumaShop. Al usar la Plataforma aceptás esta política.',
+      s1p2: 'La Plataforma es una herramienta de gestión interna: permite a vendedores publicar ofertas y controlar stock, y a administradores gestionar el marketplace (catálogo, pedidos, denuncias, solicitudes y atención al cliente).',
+      s2t: '2. ¿Quiénes somos?',
+      s2p1: 'LedexSoft es una empresa de sistemas y negocios (Cuba / Brasil) que opera el ecosistema CumaShop: un marketplace multiplataforma que conecta compradores y vendedores. La Plataforma LedexSoft es la capa de gestión de ese ecosistema.',
+      s3t: '3. Datos que recopilamos',
+      s3p1: 'Según tu rol, tratamos los siguientes datos:',
+      s3l1: '<strong>Identificación:</strong> nombre, correo electrónico (de tu cuenta Google), teléfono.',
+      s3l2: '<strong>Del negocio (vendedores):</strong> nombre comercial, NIT, tarjetas/cuentas fiscales, CNPJ, Pix, dirección, actividad, logo.',
+      s3l3: '<strong>Operativos:</strong> productos, ofertas, precios, stock físico y virtual, pedidos, ventas.',
+      s3l4: '<strong>De gestión (administradores):</strong> datos de vendedores y clientes a los que se accede para moderar, atender y operar la plataforma.',
+      s3l5: '<strong>Generados por usuarios:</strong> denuncias, consultas de atención al cliente, reportes de errores, feedback y solicitudes de colaboración que gestionás desde la Plataforma.',
+      s3box: 'La Plataforma se usa con la cuenta de Google autorizada. No recopilamos datos de navegación de terceros ni rastreamos actividad fuera de la Plataforma.',
+      s4t: '4. Cómo usamos tus datos',
+      s4l1: 'Crear y gestionar tu cuenta y rol (vendedor o administrador).',
+      s4l2: 'Permitir publicar ofertas, gestionar precios, stock y pedidos.',
+      s4l3: 'Operar el marketplace: procesar pedidos, entregas, cancelaciones y devoluciones.',
+      s4l4: 'Moderar contenido (denuncias, UGC) y atender solicitudes de clientes.',
+      s4l5: 'Cumplir obligaciones legales y fiscales.',
+      s5t: '5. Con quién compartimos datos',
+      s5l1: '<strong>Dentro del ecosistema:</strong> vendedores ven sus propias ofertas y pedidos; administradores ven la información necesaria para operar (nunca datos de pago completos de clientes).',
+      s5l2: '<strong>Proveedores técnicos:</strong> Google (autenticación), Supabase (base de datos), Cloudflare R2 (imágenes). Cada uno bajo sus propias políticas.',
+      s5l3: '<strong>Autoridades:</strong> solo cuando la ley lo exija.',
+      s5p1: 'No vendemos tus datos personales a terceros. No usamos tus datos para publicidad de terceros.',
+      s6t: '6. Seguridad',
+      s6p1: 'Protegemos los datos con cifrado en tránsito (HTTPS), control de acceso por roles (vendedor vs administrador), autenticación con Google y políticas de seguridad a nivel de base de datos (RLS). El acceso a la Plataforma está restringido a personal autorizado.',
+      s6p2: 'Como toda herramienta con datos sensibles, el acceso a la Plataforma debe protegerse: no compartas tu cuenta y usá contraseñas seguras en tu cuenta de Google.',
+      s7t: '7. Retención',
+      s7p1: 'Conservamos tus datos mientras tu cuenta esté activa y durante el tiempo que la ley exija para obligaciones fiscales y contables. Al cerrar tu cuenta de vendedor, los datos operativos se desvinculan y se conservan solo lo requerido legalmente.',
+      s8t: '8. Tus derechos',
+      s8p1: 'Podés solicitar en cualquier momento:',
+      s8l1: 'Acceso a tus datos personales.',
+      s8l2: 'Corrección de datos inexactos.',
+      s8l3: 'Eliminación de tu cuenta y datos (vendedores: a través del administrador del ecosistema).',
+      s8p2: 'Escribinos a <a href="mailto:legal@oneblink.app">legal@oneblink.app</a> para ejercer estos derechos.',
+      s9t: '9. Contacto',
+      s9p1: 'Para preguntas sobre esta política o el tratamiento de tus datos, contactanos en <a href="mailto:legal@oneblink.app">legal@oneblink.app</a>.',
+      s9p2: 'Podemos actualizar esta política; los cambios se publicarán en esta página con su fecha de vigencia.',
+      footer: 'LedexSoft © 2026 · Ecosistema CumaShop · Hecho con',
+      footer2: 'en Cuba 🇨🇺',
+      footerLink: 'Privacidad',
+      footerBack: 'Volver a LedexSoft'
+    },
+    en: {
+      docTitle: 'LedexSoft — Privacy Policy',
+      title: 'Privacy Policy — LedexSoft',
+      updated: 'Effective August 13, 2026 · Sellers and admins of the CumaShop ecosystem',
+      tocTitle: 'Contents',
+      toc1: '1. Introduction', toc2: '2. Who we are', toc3: '3. Data we collect',
+      toc4: '4. How we use your data', toc5: '5. Who we share data with',
+      toc6: '6. Security', toc7: '7. Retention', toc8: '8. Your rights', toc9: '9. Contact',
+      s1t: '1. Introduction',
+      s1p1: 'This Privacy Policy explains how LedexSoft ("we", "LedexSoft") collects, uses and protects the information of people who use the LedexSoft platform ("the Platform"), built for sellers and admins of the CumaShop ecosystem. By using the Platform you accept this policy.',
+      s1p2: 'The Platform is an internal management tool: it lets sellers publish offers and control stock, and admins manage the marketplace (catalog, orders, reports, requests and customer support).',
+      s2t: '2. Who we are',
+      s2p1: 'LedexSoft is a systems and business company (Cuba / Brazil) that operates the CumaShop ecosystem: a cross-platform marketplace connecting buyers and sellers. The LedexSoft Platform is the management layer of that ecosystem.',
+      s3t: '3. Data we collect',
+      s3p1: 'Depending on your role, we process the following data:',
+      s3l1: '<strong>Identification:</strong> name, email (from your Google account), phone.',
+      s3l2: '<strong>Business (sellers):</strong> trade name, NIT, fiscal cards/accounts, CNPJ, Pix, address, activity, logo.',
+      s3l3: '<strong>Operational:</strong> products, offers, prices, physical and virtual stock, orders, sales.',
+      s3l4: '<strong>Management (admins):</strong> seller and customer data accessed to moderate, support and operate the platform.',
+      s3l5: '<strong>User-generated:</strong> reports, customer support inquiries, error reports, feedback and collaboration requests managed from the Platform.',
+      s3box: 'The Platform is used with your authorized Google account. We do not collect third-party browsing data or track activity outside the Platform.',
+      s4t: '4. How we use your data',
+      s4l1: 'Create and manage your account and role (seller or admin).',
+      s4l2: 'Allow publishing offers and managing prices, stock and orders.',
+      s4l3: 'Operate the marketplace: process orders, deliveries, cancellations and returns.',
+      s4l4: 'Moderate content (reports, UGC) and handle customer requests.',
+      s4l5: 'Meet legal and tax obligations.',
+      s5t: '5. Who we share data with',
+      s5l1: '<strong>Within the ecosystem:</strong> sellers see their own offers and orders; admins see the information needed to operate (never full customer payment data).',
+      s5l2: '<strong>Technical providers:</strong> Google (authentication), Supabase (database), Cloudflare R2 (images). Each under its own policies.',
+      s5l3: '<strong>Authorities:</strong> only when required by law.',
+      s5p1: 'We do not sell your personal data to third parties. We do not use your data for third-party advertising.',
+      s6t: '6. Security',
+      s6p1: 'We protect data with encryption in transit (HTTPS), role-based access control (seller vs admin), Google authentication and database-level security policies (RLS). Access to the Platform is restricted to authorized personnel.',
+      s6p2: 'Like any tool with sensitive data, Platform access must be protected: do not share your account and use a strong Google account password.',
+      s7t: '7. Retention',
+      s7p1: 'We keep your data while your account is active and for as long as the law requires for tax and accounting obligations. When you close your seller account, operational data is unlinked and only legally required data is kept.',
+      s8t: '8. Your rights',
+      s8p1: 'You may request at any time:',
+      s8l1: 'Access to your personal data.',
+      s8l2: 'Correction of inaccurate data.',
+      s8l3: 'Deletion of your account and data (sellers: through the ecosystem admin).',
+      s8p2: 'Email us at <a href="mailto:legal@oneblink.app">legal@oneblink.app</a> to exercise these rights.',
+      s9t: '9. Contact',
+      s9p1: 'For questions about this policy or how we handle your data, contact us at <a href="mailto:legal@oneblink.app">legal@oneblink.app</a>.',
+      s9p2: 'We may update this policy; changes will be published on this page with their effective date.',
+      footer: 'LedexSoft © 2026 · CumaShop ecosystem · Made with',
+      footer2: 'in Cuba 🇨🇺',
+      footerLink: 'Privacy',
+      footerBack: 'Back to LedexSoft'
+    },
+    pt: {
+      docTitle: 'LedexSoft — Política de Privacidade',
+      title: 'Política de Privacidade — LedexSoft',
+      updated: 'Vigente a partir de 13 de agosto de 2026 · Vendedores e administradores do ecossistema CumaShop',
+      tocTitle: 'Conteúdo',
+      toc1: '1. Introdução', toc2: '2. Quem somos', toc3: '3. Dados que coletamos',
+      toc4: '4. Como usamos seus dados', toc5: '5. Com quem compartilhamos dados',
+      toc6: '6. Segurança', toc7: '7. Retenção', toc8: '8. Seus direitos', toc9: '9. Contato',
+      s1t: '1. Introdução',
+      s1p1: 'Esta Política de Privacidade explica como a LedexSoft ("nós", "LedexSoft") coleta, usa e protege as informações das pessoas que usam a plataforma LedexSoft ("a Plataforma"), destinada a vendedores e administradores do ecossistema CumaShop. Ao usar a Plataforma, você aceita esta política.',
+      s1p2: 'A Plataforma é uma ferramenta de gestão interna: permite que vendedores publiquem ofertas e controlem estoque, e que administradores gerenciem o marketplace (catálogo, pedidos, denúncias, solicitações e atendimento ao cliente).',
+      s2t: '2. Quem somos',
+      s2p1: 'A LedexSoft é uma empresa de sistemas e negócios (Cuba / Brasil) que opera o ecossistema CumaShop: um marketplace multiplataforma que conecta compradores e vendedores. A Plataforma LedexSoft é a camada de gestão desse ecossistema.',
+      s3t: '3. Dados que coletamos',
+      s3p1: 'Dependendo do seu papel, tratamos os seguintes dados:',
+      s3l1: '<strong>Identificação:</strong> nome, e-mail (da sua conta Google), telefone.',
+      s3l2: '<strong>Do negócio (vendedores):</strong> nome comercial, NIT, cartões/contas fiscais, CNPJ, Pix, endereço, atividade, logotipo.',
+      s3l3: '<strong>Operacionais:</strong> produtos, ofertas, preços, estoque físico e virtual, pedidos, vendas.',
+      s3l4: '<strong>De gestão (administradores):</strong> dados de vendedores e clientes acessados para moderar, atender e operar a plataforma.',
+      s3l5: '<strong>Gerados por usuários:</strong> denúncias, consultas de atendimento, relatórios de erros, feedback e solicitações de colaboração gerenciados na Plataforma.',
+      s3box: 'A Plataforma é usada com sua conta Google autorizada. Não coletamos dados de navegação de terceiros nem rastreamos atividades fora da Plataforma.',
+      s4t: '4. Como usamos seus dados',
+      s4l1: 'Criar e gerenciar sua conta e papel (vendedor ou administrador).',
+      s4l2: 'Permitir publicar ofertas e gerenciar preços, estoque e pedidos.',
+      s4l3: 'Operar o marketplace: processar pedidos, entregas, cancelamentos e devoluções.',
+      s4l4: 'Moderar conteúdo (denúncias, UGC) e atender solicitações de clientes.',
+      s4l5: 'Cumprir obrigações legais e fiscais.',
+      s5t: '5. Com quem compartilhamos dados',
+      s5l1: '<strong>Dentro do ecossistema:</strong> vendedores veem suas próprias ofertas e pedidos; administradores veem as informações necessárias para operar (nunca dados completos de pagamento de clientes).',
+      s5l2: '<strong>Provedores técnicos:</strong> Google (autenticação), Supabase (banco de dados), Cloudflare R2 (imagens). Cada um sob suas próprias políticas.',
+      s5l3: '<strong>Autoridades:</strong> apenas quando exigido por lei.',
+      s5p1: 'Não vendemos seus dados pessoais a terceiros. Não usamos seus dados para publicidade de terceiros.',
+      s6t: '6. Segurança',
+      s6p1: 'Protegemos os dados com criptografia em trânsito (HTTPS), controle de acesso por funções (vendedor vs administrador), autenticação com Google e políticas de segurança no banco de dados (RLS). O acesso à Plataforma é restrito a pessoal autorizado.',
+      s6p2: 'Como toda ferramenta com dados sensíveis, o acesso à Plataforma deve ser protegido: não compartilhe sua conta e use uma senha forte na sua conta Google.',
+      s7t: '7. Retenção',
+      s7p1: 'Mantemos seus dados enquanto sua conta estiver ativa e pelo tempo que a lei exigir para obrigações fiscais e contábeis. Ao encerrar sua conta de vendedor, os dados operacionais são desvinculados e apenas o exigido legalmente é mantido.',
+      s8t: '8. Seus direitos',
+      s8p1: 'Você pode solicitar a qualquer momento:',
+      s8l1: 'Acesso aos seus dados pessoais.',
+      s8l2: 'Correção de dados imprecisos.',
+      s8l3: 'Exclusão da sua conta e dados (vendedores: através do administrador do ecossistema).',
+      s8p2: 'Escreva para <a href="mailto:legal@oneblink.app">legal@oneblink.app</a> para exercer esses direitos.',
+      s9t: '9. Contato',
+      s9p1: 'Para perguntas sobre esta política ou o tratamento dos seus dados, fale conosco em <a href="mailto:legal@oneblink.app">legal@oneblink.app</a>.',
+      s9p2: 'Podemos atualizar esta política; as alterações serão publicadas nesta página com sua data de vigência.',
+      footer: 'LedexSoft © 2026 · Ecossistema CumaShop · Feito com',
+      footer2: 'em Cuba 🇨🇺',
+      footerLink: 'Privacidade',
+      footerBack: 'Voltar para LedexSoft'
+    }
+  };
+
+  function detectLang() {
+    const fromUrl = new URLSearchParams(location.search).get('lang');
+    if (fromUrl && I18N[fromUrl]) return fromUrl;
+    const stored = localStorage.getItem('ob-lang');
+    if (stored && I18N[stored]) return stored;
+    const nav = (navigator.language || navigator.languages?.[0] || 'es').toLowerCase();
+    if (nav.startsWith('pt')) return 'pt';
+    if (nav.startsWith('en')) return 'en';
+    return 'es';
+  }
+
+  function applyLang(lang) {
+    const t = I18N[lang];
+    document.documentElement.lang = lang;
+    document.title = t.docTitle;
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    document.querySelectorAll('.lang-switch button').forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    localStorage.setItem('ob-lang', lang);
+  }
+
+  document.querySelectorAll('.lang-switch button').forEach((btn) => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
+
+  function syncLangLinks(lang) {
+    document.querySelectorAll('.lang-link').forEach((a) => {
+      const page = a.getAttribute('href').split('?')[0];
+      a.href = page + '?lang=' + lang;
+    });
+  }
+  const _origApply = applyLang;
+  applyLang = (lang) => { _origApply(lang); syncLangLinks(lang); };
+  applyLang(detectLang());
+</script>
+</body>
+</html>

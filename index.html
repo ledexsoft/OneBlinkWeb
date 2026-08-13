@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OneBlink — El marketplace de Cuba</title>
-  <meta name="description" content="OneBlink: productos, servicios y propiedades en un solo lugar. Hecho en Cuba." />
+  <title>CumaShop — El marketplace de Cuba</title>
+  <meta name="description" content="CumaShop: productos, servicios y propiedades en un solo lugar. Hecho en Cuba." />
   <style>
     :root {
       --primary: #7C4DFF;
@@ -119,7 +119,6 @@
       position: relative;
     }
     .hero .cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
-
     /* ── Features ── */
     .features {
       max-width: 1080px;
@@ -147,7 +146,6 @@
     }
     .feature h3 { font-size: 16px; margin-bottom: 6px; }
     .feature p { font-size: 14px; color: var(--text-soft); }
-
     /* ── CTA section ── */
     .cta-section {
       text-align: center;
@@ -159,25 +157,62 @@
     .cta-section p { color: var(--text-soft); margin-bottom: 20px; font-size: 15px; }
     .cta-section .store-badge {
       display: inline-block;
-      background: #111;
+      background: var(--primary);
       color: #fff;
-      border-radius: 14px;
-      padding: 12px 20px;
-      font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 28px;
+      border-radius: 13px;
       text-decoration: none;
-      opacity: 0.75;
+      transition: background 0.15s;
     }
-    .cta-section .store-badge:hover { opacity: 1; }
+    .cta-section .store-badge:hover { background: var(--primary-dark); }
+
+    /* ── Sellers section ── */
+    .sellers {
+      background: linear-gradient(160deg, #0F172A 0%, #1E293B 100%);
+      color: #fff;
+      padding: 72px 24px 80px;
+      text-align: center;
+    }
+    .sellers-inner { max-width: 760px; margin: 0 auto; }
+    .sellers .badge {
+      display: inline-block;
+      background: rgba(124, 77, 255, 0.25);
+      color: #C9B8FF;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+    .sellers h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; margin-bottom: 12px; }
+    .sellers p { color: rgba(255,255,255,0.78); font-size: 16px; max-width: 560px; margin: 0 auto 28px; }
+    .sellers .sellers-cta {
+      display: inline-block;
+      background: #fff;
+      color: #0F172A;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .sellers .sellers-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.35); }
 
     /* ── Footer ── */
     footer {
       margin-top: auto;
-      text-align: center;
-      color: var(--text-soft);
-      font-size: 13px;
-      padding: 28px 20px;
+      background: var(--surface);
       border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 22px 20px;
+      font-size: 13px;
+      color: var(--text-soft);
     }
     footer a { color: var(--primary); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
@@ -187,7 +222,7 @@
 
 <header>
   <div class="header-inner">
-    <div class="logo"><span class="logo-mark">⚡</span> One<span>Blink</span></div>
+    <div class="logo"><span class="logo-mark">⚡</span> Cuma<span>Shop</span></div>
     <div class="lang-switch" role="group" aria-label="Idioma / Language / Idioma">
       <button data-lang="es" class="active">ES</button>
       <button data-lang="en">EN</button>
@@ -231,10 +266,20 @@
     <p data-i18n="ctaSub">La app está en camino. Mientras tanto, leé nuestra política de privacidad.</p>
     <a class="store-badge lang-link" href="privacidad.html" data-i18n="ctaBtn">📄 Política de Privacidad</a>
   </section>
+
+  <!-- Para vendedores: acceso a la plataforma de gestión LedexSoft -->
+  <section class="sellers">
+    <div class="sellers-inner">
+      <span class="badge" data-i18n="sellersBadge">Para vendedores</span>
+      <h2 data-i18n="sellersTitle">¿Tenés un negocio? Vendé en CumaShop.</h2>
+      <p data-i18n="sellersSub">Publicá tus productos, gestioná ofertas, precios y stock desde la plataforma de vendedores de LedexSoft. Simple, directo y pensado para el comercio local.</p>
+      <a class="sellers-cta lang-link" href="ledexsoft.html" data-i18n="sellersCta">Ir a LedexSoft →</a>
+    </div>
+  </section>
 </main>
 
 <footer>
-  <span data-i18n="footer">OneBlink · LedexSoft © 2026 · Hecho con</span> ♥ <span data-i18n="footer2">en Cuba 🇨🇺</span> ·
+  <span data-i18n="footer">CumaShop · LedexSoft © 2026 · Hecho con</span> ♥ <span data-i18n="footer2">en Cuba 🇨🇺</span> ·
   <a class="lang-link" href="privacidad.html" data-i18n="footerLink">Privacidad</a>
 </footer>
 
@@ -242,7 +287,7 @@
   // ── Traducciones (es / en / pt) ──
   const I18N = {
     es: {
-      docTitle: 'OneBlink — El marketplace de Cuba',
+      docTitle: 'CumaShop — El marketplace de Cuba',
       heroTitle: 'Todo Cuba, <span>en un solo lugar.</span>',
       heroTagline: 'Productos, servicios y propiedades. Conectamos compradores y vendedores en un marketplace hecho en y para Cuba.',
       heroCta: 'Próximamente en Google Play',
@@ -257,12 +302,16 @@
       ctaTitle: '¿Listo para comprar y vender?',
       ctaSub: 'La app está en camino. Mientras tanto, leé nuestra política de privacidad.',
       ctaBtn: '📄 Política de Privacidad',
-      footer: 'OneBlink · LedexSoft © 2026 · Hecho con',
+      sellersBadge: 'Para vendedores',
+      sellersTitle: '¿Tenés un negocio? Vendé en CumaShop.',
+      sellersSub: 'Publicá tus productos, gestioná ofertas, precios y stock desde la plataforma de vendedores de LedexSoft. Simple, directo y pensado para el comercio local.',
+      sellersCta: 'Ir a LedexSoft →',
+      footer: 'CumaShop · LedexSoft © 2026 · Hecho con',
       footer2: 'en Cuba 🇨🇺',
       footerLink: 'Privacidad'
     },
     en: {
-      docTitle: 'OneBlink — Cuba\'s marketplace',
+      docTitle: 'CumaShop — Cuba\'s marketplace',
       heroTitle: 'All of Cuba, <span>in one place.</span>',
       heroTagline: 'Products, services and properties. We connect buyers and sellers in a marketplace made in and for Cuba.',
       heroCta: 'Coming soon to Google Play',
@@ -277,12 +326,16 @@
       ctaTitle: 'Ready to buy and sell?',
       ctaSub: 'The app is on its way. Meanwhile, read our privacy policy.',
       ctaBtn: '📄 Privacy Policy',
-      footer: 'OneBlink · LedexSoft © 2026 · Made with',
+      sellersBadge: 'For sellers',
+      sellersTitle: 'Own a business? Sell on CumaShop.',
+      sellersSub: 'Publish your products and manage offers, prices and stock from the LedexSoft seller platform. Simple, direct, built for local commerce.',
+      sellersCta: 'Go to LedexSoft →',
+      footer: 'CumaShop · LedexSoft © 2026 · Made with',
       footer2: 'in Cuba 🇨🇺',
       footerLink: 'Privacy'
     },
     pt: {
-      docTitle: 'OneBlink — O marketplace de Cuba',
+      docTitle: 'CumaShop — O marketplace de Cuba',
       heroTitle: 'Toda Cuba, <span>em um só lugar.</span>',
       heroTagline: 'Produtos, serviços e propriedades. Conectamos compradores e vendedores em um marketplace feito em e para Cuba.',
       heroCta: 'Em breve no Google Play',
@@ -297,7 +350,11 @@
       ctaTitle: 'Pronto para comprar e vender?',
       ctaSub: 'O app está a caminho. Enquanto isso, leia nossa política de privacidade.',
       ctaBtn: '📄 Política de Privacidade',
-      footer: 'OneBlink · LedexSoft © 2026 · Feito com',
+      sellersBadge: 'Para vendedores',
+      sellersTitle: 'Tem um negócio? Venda no CumaShop.',
+      sellersSub: 'Publique seus produtos e gerencie ofertas, preços e estoque na plataforma de vendedores da LedexSoft. Simples, direto e feito para o comércio local.',
+      sellersCta: 'Ir para LedexSoft →',
+      footer: 'CumaShop · LedexSoft © 2026 · Feito com',
       footer2: 'em Cuba 🇨🇺',
       footerLink: 'Privacidade'
     }
@@ -333,10 +390,11 @@
     btn.addEventListener('click', () => applyLang(btn.dataset.lang));
   });
 
-  // Links a privacidad.html llevan el idioma actual (?lang=).
+  // Links a otras páginas llevan el idioma actual (?lang=).
   function syncLangLinks(lang) {
     document.querySelectorAll('.lang-link').forEach((a) => {
-      a.href = 'privacidad.html?lang=' + lang;
+      const page = a.getAttribute('href').split('?')[0];
+      a.href = page + '?lang=' + lang;
     });
   }
   const _origApply = applyLang;
