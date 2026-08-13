@@ -584,3 +584,273 @@ section.card a { color: var(--accent); }
   max-height: 300px;
   opacity: 1;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Páginas de privacidad / borrado (privacidad.html, borrar-cuenta.html,
+   privacidad-ledexsoft.html) — paleta light propia bajo .page-privacidad
+   ═══════════════════════════════════════════════════════════════════════ */
+.page-privacidad {
+  --pp-primary: #7C4DFF;
+  --pp-primary-dark: #5E35B1;
+  --pp-primary-soft: #EDE7FF;
+  --pp-bg: #F7F7FB;
+  --pp-surface: #FFFFFF;
+  --pp-text: #17172B;
+  --pp-text-soft: #5A5A72;
+  --pp-border: #E5E5F0;
+  --pp-radius: 14px;
+  --pp-shadow: 0 2px 12px rgba(94, 53, 177, 0.06);
+  background: var(--pp-bg);
+  color: var(--pp-text);
+  line-height: 1.7;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* Reset de la paleta dark global (body/p de main.css) dentro de privacidad. */
+.page-privacidad p { color: var(--pp-text-soft); }
+.page-privacidad h1, .page-privacidad h2, .page-privacidad h3,
+.page-privacidad h4, .page-privacidad h5, .page-privacidad h6 {
+  color: var(--pp-text);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+.page-privacidad header {
+  background: linear-gradient(135deg, #7C4DFF 0%, #4A1FBF 100%);
+  color: #fff;
+  padding: 20px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 16px rgba(74, 31, 191, 0.35);
+}
+.page-privacidad .header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.page-privacidad .logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+.page-privacidad .logo-mark {
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+}
+.page-privacidad .logo span { color: #D9CBFF; }
+.page-privacidad .lang-switch {
+  display: flex;
+  gap: 4px;
+  background: rgba(255,255,255,0.14);
+  padding: 4px;
+  border-radius: 12px;
+}
+.page-privacidad .lang-switch button {
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.page-privacidad .lang-switch button:hover { color: #fff; }
+.page-privacidad .lang-switch button.active {
+  background: #fff;
+  color: var(--pp-primary-dark);
+}
+
+/* Layout de dos columnas (privacidad.html / borrar-cuenta.html) */
+.page-privacidad .layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 32px;
+  align-items: start;
+  width: 100%;
+}
+@media (max-width: 860px) {
+  .page-privacidad .layout { grid-template-columns: 1fr; }
+  .page-privacidad nav.toc { position: static; max-height: none; }
+}
+
+/* TOC */
+.page-privacidad nav.toc {
+  position: sticky;
+  top: 96px;
+  background: var(--pp-surface);
+  border: 1px solid var(--pp-border);
+  border-radius: var(--pp-radius);
+  padding: 18px;
+  box-shadow: var(--pp-shadow);
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+.page-privacidad nav.toc h3 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--pp-text-soft);
+  margin-bottom: 10px;
+}
+.page-privacidad nav.toc a {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: var(--pp-text-soft);
+  text-decoration: none;
+  font-size: 13.5px;
+  border-left: 3px solid transparent;
+  transition: all 0.12s;
+}
+.page-privacidad nav.toc a:hover { background: var(--pp-primary-soft); color: var(--pp-primary-dark); }
+.page-privacidad nav.toc a.active {
+  border-left-color: var(--pp-primary);
+  background: var(--pp-primary-soft);
+  color: var(--pp-primary-dark);
+  font-weight: 600;
+}
+
+/* Content */
+.page-privacidad .content { min-width: 0; width: 100%; }
+.page-privacidad .hero-card {
+  background: linear-gradient(135deg, var(--pp-surface) 0%, #F3EEFF 100%);
+  border: 1px solid var(--pp-border);
+  border-radius: 18px;
+  padding: 30px 32px;
+  margin-bottom: 20px;
+  box-shadow: var(--pp-shadow);
+}
+.page-privacidad .hero-card .badge {
+  display: inline-block;
+  background: var(--pp-primary-soft);
+  color: var(--pp-primary-dark);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+.page-privacidad .hero-card h1 { font-size: 26px; letter-spacing: -0.5px; margin-bottom: 6px; color: var(--pp-text); }
+.page-privacidad .hero-card .updated {
+  font-size: 13px;
+  color: var(--pp-text-soft);
+  margin-bottom: 14px;
+}
+.page-privacidad .hero-card .lead { font-size: 15px; color: var(--pp-text-soft); }
+
+.page-privacidad section.card {
+  background: var(--pp-surface);
+  border: 1px solid var(--pp-border);
+  border-radius: var(--pp-radius);
+  padding: 26px 30px;
+  margin-bottom: 16px;
+  box-shadow: var(--pp-shadow);
+  scroll-margin-top: 90px;
+}
+.page-privacidad section.card h2 {
+  font-size: 18px;
+  color: var(--pp-primary-dark);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.page-privacidad section.card h2 .num {
+  background: var(--pp-primary-soft);
+  color: var(--pp-primary);
+  font-size: 13px;
+  font-weight: 800;
+  width: 26px; height: 26px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.page-privacidad section.card h3 { font-size: 15px; margin: 16px 0 6px; color: var(--pp-text); }
+.page-privacidad section.card p { margin-bottom: 12px; font-size: 14.5px; }
+.page-privacidad section.card ul { padding-left: 22px; margin-bottom: 12px; }
+.page-privacidad section.card li { margin-bottom: 7px; font-size: 14.5px; }
+.page-privacidad section.card strong { color: var(--pp-text); }
+.page-privacidad section.card a { color: var(--pp-primary); }
+.page-privacidad .highlight {
+  background: #FFF8E6;
+  border: 1px solid #F0DFA8;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  margin: 12px 0;
+}
+
+/* Variante de una columna (privacidad-ledexsoft.html) */
+.page-privacidad .container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+  width: 100%;
+}
+.page-privacidad .container h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; color: var(--pp-text); }
+.page-privacidad .container .updated { font-size: 13px; color: var(--pp-text-soft); margin-bottom: 24px; }
+.page-privacidad .container h2 { font-size: 19px; font-weight: 700; margin: 28px 0 10px; color: var(--pp-text); }
+.page-privacidad .container p { font-size: 14.5px; margin-bottom: 10px; }
+.page-privacidad .container ul, .page-privacidad .container ol { margin: 0 0 12px 22px; }
+.page-privacidad .container li { font-size: 14.5px; margin-bottom: 6px; }
+.page-privacidad .container a { color: var(--pp-primary); text-decoration: none; }
+.page-privacidad .container a:hover { text-decoration: underline; }
+.page-privacidad .container .toc {
+  background: var(--pp-surface);
+  border: 1px solid var(--pp-border);
+  border-radius: var(--pp-radius);
+  padding: 18px 22px;
+  margin-bottom: 10px;
+}
+.page-privacidad .container .toc p { font-weight: 700; margin-bottom: 8px; font-size: 14px; }
+.page-privacidad .container .toc a { display: block; font-size: 13.5px; margin-bottom: 4px; }
+.page-privacidad .container .box {
+  background: var(--pp-primary-soft);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 14px 0;
+  font-size: 13.5px;
+}
+
+.page-privacidad footer {
+  margin-top: auto;
+  background: var(--pp-surface);
+  border-top: 1px solid var(--pp-border);
+  text-align: center;
+  padding: 22px 20px;
+  font-size: 13px;
+  color: var(--pp-text-soft);
+}
+.page-privacidad footer a { color: var(--pp-primary); text-decoration: none; }
+.page-privacidad footer a:hover { text-decoration: underline; }
+.page-privacidad footer .heart { color: #E5484D; }
+
+/* Links de idioma dentro de las páginas de privacidad */
+.page-privacidad .lang-link { color: var(--pp-primary); text-decoration: none; }
+.page-privacidad .lang-link:hover { text-decoration: underline; }
