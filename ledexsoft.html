@@ -4,187 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LedexSoft — Plataforma de vendedores y administración</title>
-  <meta name="description" content="LedexSoft: la plataforma de gestión para vendedores y administradores del ecosistema CumaShop. Ofertas, stock, pedidos y más." />
-  <style>
-    :root {
-      --primary: #5856D6;
-      --primary-dark: #3F3D9E;
-      --primary-soft: #E9E9FB;
-      --bg: #F6F6FA;
-      --surface: #FFFFFF;
-      --text: #17172B;
-      --text-soft: #5A5A72;
-      --border: #E5E5F0;
-      --radius: 16px;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      background: linear-gradient(135deg, #5856D6 0%, #3F3D9E 100%);
-      color: #fff;
-      padding: 18px 24px;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      box-shadow: 0 2px 16px rgba(63, 61, 158, 0.3);
-    }
-    .header-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .logo { font-size: 21px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
-    .logo-mark {
-      width: 32px; height: 32px;
-      background: rgba(255,255,255,0.18);
-      border-radius: 10px;
-      display: grid; place-items: center;
-    }
-    .logo span { color: #D9CBFF; }
-    .lang-switch {
-      display: flex; gap: 4px;
-      background: rgba(255,255,255,0.14);
-      padding: 4px; border-radius: 12px;
-    }
-    .lang-switch button {
-      border: none; background: transparent;
-      color: rgba(255,255,255,0.75);
-      font-size: 13px; font-weight: 700;
-      padding: 6px 12px; border-radius: 9px;
-      cursor: pointer; transition: all 0.15s;
-      font-family: inherit;
-    }
-    .lang-switch button:hover { color: #fff; }
-    .lang-switch button.active { background: #fff; color: var(--primary-dark); }
-
-    .hero {
-      background: linear-gradient(160deg, #5856D6 0%, #3F3D9E 60%, #2B2A75 100%);
-      color: #fff;
-      text-align: center;
-      padding: 84px 24px 96px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -40%; left: -20%;
-      width: 140%; height: 140%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.10), transparent 45%),
-                  radial-gradient(circle at 75% 70%, rgba(255,255,255,0.07), transparent 40%);
-      pointer-events: none;
-    }
-    .hero h1 {
-      font-size: clamp(32px, 5.5vw, 52px);
-      font-weight: 900;
-      letter-spacing: -1px;
-      margin-bottom: 14px;
-      position: relative;
-    }
-    .hero h1 span { color: #D9CBFF; }
-    .hero p.tagline {
-      font-size: clamp(16px, 2.5vw, 19px);
-      opacity: 0.92;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      position: relative;
-    }
-    .hero .cta {
-      display: inline-block;
-      background: #fff;
-      color: var(--primary-dark);
-      font-weight: 700;
-      font-size: 16px;
-      padding: 14px 32px;
-      border-radius: 14px;
-      text-decoration: none;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-      transition: transform 0.15s, box-shadow 0.15s;
-      position: relative;
-    }
-    .hero .cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
-
-    .features {
-      max-width: 1080px;
-      margin: -48px auto 0;
-      padding: 0 20px 60px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      position: relative;
-    }
-    .feature {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 26px 24px;
-      box-shadow: 0 8px 24px rgba(63, 61, 158, 0.08);
-    }
-    .feature .icon {
-      width: 46px; height: 46px;
-      background: var(--primary-soft);
-      border-radius: 13px;
-      display: grid; place-items: center;
-      font-size: 22px;
-      margin-bottom: 14px;
-    }
-    .feature h3 { font-size: 16px; margin-bottom: 6px; }
-    .feature p { font-size: 14px; color: var(--text-soft); }
-
-    .cta-section {
-      text-align: center;
-      padding: 40px 24px 64px;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-    .cta-section h2 { font-size: 24px; margin-bottom: 10px; }
-    .cta-section p { color: var(--text-soft); margin-bottom: 20px; font-size: 15px; }
-    .cta-section .store-badge {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 700;
-      font-size: 15px;
-      padding: 13px 28px;
-      border-radius: 13px;
-      text-decoration: none;
-      transition: background 0.15s;
-      margin: 0 6px 10px;
-    }
-    .cta-section .store-badge:hover { background: var(--primary-dark); }
-
-    footer {
-      margin-top: auto;
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 22px 20px;
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-    footer a { color: var(--primary); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-  </style>
+  <meta name="description" content="LedexSoft: la plataforma de gestión para vendedores y administradores del ecosistema CumaShop." />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
-<body>
+<body class="page-ledexsoft">
 
 <header>
   <div class="header-inner">
-    <div class="logo"><span class="logo-mark">⚡</span> Ledex<span>Soft</span></div>
+    <a href="ledexsoft.html" class="logo"><span class="logo-mark" style="background: linear-gradient(135deg, #4cc9f0, #3a0ca3);">📈</span> LedexSoft</a>
     <div class="lang-switch" role="group" aria-label="Idioma / Language / Idioma">
       <button data-lang="es" class="active">ES</button>
       <button data-lang="en">EN</button>
@@ -194,154 +21,57 @@
 </header>
 
 <main>
-  <section class="hero">
-    <h1 data-i18n="heroTitle">La plataforma detrás de <span>CumaShop.</span></h1>
-    <p class="tagline" data-i18n="heroTagline">Publicá ofertas, controlá tu stock físico y virtual, gestioná pedidos y hacé crecer tu negocio. Pensado para vendedores y administradores del ecosistema LedexSoft.</p>
-    <a class="cta" href="#" data-i18n="heroCta" onclick="return false;">Acceso con Google</a>
+  <section class="hero" style="background-image: radial-gradient(circle at 85% 50%, rgba(76, 201, 240, 0.15), transparent 40%);">
+    <div class="hero-content">
+      <span class="badge" data-i18n="sellersBadge" style="margin-bottom: 16px;">Para vendedores</span>
+      <h1 data-i18n="ledexHeroTitle">Gestioná tus ventas <br/><span class="text-gradient">con LedexSoft.</span></h1>
+      <p class="tagline" data-i18n="ledexHeroTagline">La plataforma definitiva para vendedores del ecosistema CumaShop. Controlá tu stock, analizá tus ventas y crecé tu negocio.</p>
+      <a class="btn-primary" href="#" data-i18n="ledexHeroCta" onclick="return false;">Acceder al Dashboard</a>
+    </div>
+    <div class="hero-visual">
+      <img src="assets/hero_ledexsoft.png" alt="LedexSoft Dashboard Mockup" />
+    </div>
   </section>
 
   <section class="features">
-    <div class="feature">
-      <div class="icon">🛒</div>
-      <h3 data-i18n="f1t">Ofertas y productos</h3>
-      <p data-i18n="f1d">Creá ofertas sobre el catálogo, con presentaciones, precios y fotos.</p>
+    <div class="feature-card">
+      <div class="feature-icon" style="color: #4cc9f0; background: rgba(76, 201, 240, 0.1); border-color: rgba(76, 201, 240, 0.3);">📦</div>
+      <h3 data-i18n="lf1t">Control de Stock</h3>
+      <p data-i18n="lf1d">Actualizá inventario en tiempo real y evitá ventas sin stock.</p>
     </div>
-    <div class="feature">
-      <div class="icon">📦</div>
-      <h3 data-i18n="f2t">Stock físico y virtual</h3>
-      <p data-i18n="f2d">Separamos lo que hay en tu local de lo que podés vender: sin sobreventas.</p>
+    <div class="feature-card">
+      <div class="feature-icon" style="color: #4cc9f0; background: rgba(76, 201, 240, 0.1); border-color: rgba(76, 201, 240, 0.3);">📊</div>
+      <h3 data-i18n="lf2t">Analíticas</h3>
+      <p data-i18n="lf2d">Visualizá tus ganancias, productos más vendidos y tendencias.</p>
     </div>
-    <div class="feature">
-      <div class="icon">🚚</div>
-      <h3 data-i18n="f3t">Pedidos y entregas</h3>
-      <p data-i18n="f3d">Despachá, devolvé o cancelá pedidos con control de stock automático.</p>
+    <div class="feature-card">
+      <div class="feature-icon" style="color: #4cc9f0; background: rgba(76, 201, 240, 0.1); border-color: rgba(76, 201, 240, 0.3);">🏷️</div>
+      <h3 data-i18n="lf3t">Gestión de Ofertas</h3>
+      <p data-i18n="lf3d">Creá promociones y descuentos para atraer más clientes.</p>
     </div>
-    <div class="feature">
-      <div class="icon">📊</div>
-      <h3 data-i18n="f4t">Métricas reales</h3>
-      <p data-i18n="f4d">Ventas, vendedores, solicitudes y denuncias: todo el ecosistema en un panel.</p>
+    <div class="feature-card">
+      <div class="feature-icon" style="color: #4cc9f0; background: rgba(76, 201, 240, 0.1); border-color: rgba(76, 201, 240, 0.3);">💬</div>
+      <h3 data-i18n="lf4t">Soporte 24/7</h3>
+      <p data-i18n="lf4d">Asistencia dedicada para que tu negocio nunca se detenga.</p>
     </div>
   </section>
 
-  <section class="cta-section">
-    <h2 data-i18n="ctaTitle">¿Trabajás con LedexSoft?</h2>
-    <p data-i18n="ctaSub">Esta es la plataforma de gestión interna para vendedores y administradores. Conocé cómo tratamos tus datos.</p>
-    <a class="store-badge lang-link" href="privacidad-ledexsoft.html" data-i18n="ctaBtn">🔒 Política de Privacidad</a>
+  <section class="section-cta">
+    <div class="glass-panel" style="border-color: rgba(76, 201, 240, 0.3);">
+      <h2 data-i18n="ctaTitle">¿Listo para comprar y vender?</h2>
+      <p data-i18n="ctaSub">La app está en camino. Mientras tanto, leé nuestra política de privacidad.</p>
+      <br/>
+      <a class="btn-primary lang-link" href="index.html" data-i18n="backToHome">← Volver a CumaShop</a>
+    </div>
   </section>
+
 </main>
 
 <footer>
-  <span data-i18n="footer">LedexSoft © 2026 · Ecosistema CumaShop · Hecho con</span> ♥ <span data-i18n="footer2">en Cuba 🇨🇺</span> ·
-  <a class="lang-link" href="privacidad-ledexsoft.html" data-i18n="footerLink">Privacidad</a> ·
-  <a class="lang-link" href="index.html" data-i18n="footerBack">Volver a CumaShop</a>
+  <span data-i18n="footer">CumaShop · LedexSoft © 2026 · Hecho con</span> ♥ <span data-i18n="footer2">en Cuba 🇨🇺</span> ·
+  <a class="lang-link" href="privacidad-ledexsoft.html" data-i18n="footerLink">Privacidad</a>
 </footer>
 
-<script>
-  // ── Traducciones (es / en / pt) ──
-  const I18N = {
-    es: {
-      docTitle: 'LedexSoft — Plataforma de vendedores y administración',
-      heroTitle: 'La plataforma detrás de <span>CumaShop.</span>',
-      heroTagline: 'Publicá ofertas, controlá tu stock físico y virtual, gestioná pedidos y hacé crecer tu negocio. Pensado para vendedores y administradores del ecosistema LedexSoft.',
-      heroCta: 'Acceso con Google',
-      f1t: 'Ofertas y productos',
-      f1d: 'Creá ofertas sobre el catálogo, con presentaciones, precios y fotos.',
-      f2t: 'Stock físico y virtual',
-      f2d: 'Separamos lo que hay en tu local de lo que podés vender: sin sobreventas.',
-      f3t: 'Pedidos y entregas',
-      f3d: 'Despachá, devolvé o cancelá pedidos con control de stock automático.',
-      f4t: 'Métricas reales',
-      f4d: 'Ventas, vendedores, solicitudes y denuncias: todo el ecosistema en un panel.',
-      ctaTitle: '¿Trabajás con LedexSoft?',
-      ctaSub: 'Esta es la plataforma de gestión interna para vendedores y administradores. Conocé cómo tratamos tus datos.',
-      ctaBtn: '🔒 Política de Privacidad',
-      footer: 'LedexSoft © 2026 · Ecosistema CumaShop · Hecho con',
-      footer2: 'en Cuba 🇨🇺',
-      footerLink: 'Privacidad',
-      footerBack: 'Volver a CumaShop'
-    },
-    en: {
-      docTitle: 'LedexSoft — Seller & admin platform',
-      heroTitle: 'The platform behind <span>CumaShop.</span>',
-      heroTagline: 'Publish offers, control your physical and virtual stock, manage orders and grow your business. Built for sellers and admins of the LedexSoft ecosystem.',
-      heroCta: 'Sign in with Google',
-      f1t: 'Offers & products',
-      f1d: 'Create offers from the catalog, with variants, prices and photos.',
-      f2t: 'Physical & virtual stock',
-      f2d: 'We separate what you have in store from what you can sell: no overselling.',
-      f3t: 'Orders & deliveries',
-      f3d: 'Dispatch, return or cancel orders with automatic stock control.',
-      f4t: 'Real metrics',
-      f4d: 'Sales, sellers, requests and reports: the whole ecosystem in one panel.',
-      ctaTitle: 'Work with LedexSoft?',
-      ctaSub: 'This is the internal management platform for sellers and admins. Learn how we handle your data.',
-      ctaBtn: '🔒 Privacy Policy',
-      footer: 'LedexSoft © 2026 · CumaShop ecosystem · Made with',
-      footer2: 'in Cuba 🇨🇺',
-      footerLink: 'Privacy',
-      footerBack: 'Back to CumaShop'
-    },
-    pt: {
-      docTitle: 'LedexSoft — Plataforma de vendedores e administração',
-      heroTitle: 'A plataforma por trás da <span>CumaShop.</span>',
-      heroTagline: 'Publique ofertas, controle seu estoque físico e virtual, gerencie pedidos e faça seu negócio crescer. Feito para vendedores e administradores do ecossistema LedexSoft.',
-      heroCta: 'Entrar com Google',
-      f1t: 'Ofertas e produtos',
-      f1d: 'Crie ofertas a partir do catálogo, com variações, preços e fotos.',
-      f2t: 'Estoque físico e virtual',
-      f2d: 'Separamos o que há na loja do que pode ser vendido: sem sobrevenda.',
-      f3t: 'Pedidos e entregas',
-      f3d: 'Despache, devolva ou cancele pedidos com controle automático de estoque.',
-      f4t: 'Métricas reais',
-      f4d: 'Vendas, vendedores, solicitações e denúncias: todo o ecossistema em um painel.',
-      ctaTitle: 'Trabalha com a LedexSoft?',
-      ctaSub: 'Esta é a plataforma interna de gestão para vendedores e administradores. Saiba como tratamos seus dados.',
-      ctaBtn: '🔒 Política de Privacidade',
-      footer: 'LedexSoft © 2026 · Ecossistema CumaShop · Feito com',
-      footer2: 'em Cuba 🇨🇺',
-      footerLink: 'Privacidade',
-      footerBack: 'Voltar para CumaShop'
-    }
-  };
-
-  function detectLang() {
-    const fromUrl = new URLSearchParams(location.search).get('lang');
-    if (fromUrl && I18N[fromUrl]) return fromUrl;
-    const stored = localStorage.getItem('ob-lang');
-    if (stored && I18N[stored]) return stored;
-    const nav = (navigator.language || navigator.languages?.[0] || 'es').toLowerCase();
-    if (nav.startsWith('pt')) return 'pt';
-    if (nav.startsWith('en')) return 'en';
-    return 'es';
-  }
-
-  function applyLang(lang) {
-    const t = I18N[lang];
-    document.documentElement.lang = lang;
-    document.title = t.docTitle;
-    document.querySelectorAll('[data-i18n]').forEach((el) => {
-      const key = el.getAttribute('data-i18n');
-      if (t[key] !== undefined) el.innerHTML = t[key];
-    });
-    document.querySelectorAll('.lang-switch button').forEach((btn) => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-    localStorage.setItem('ob-lang', lang);
-  }
-
-  document.querySelectorAll('.lang-switch button').forEach((btn) => {
-    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
-  });
-
-  function syncLangLinks(lang) {
-    document.querySelectorAll('.lang-link').forEach((a) => {
-      const page = a.getAttribute('href').split('?')[0];
-      a.href = page + '?lang=' + lang;
-    });
-  }
-  const _origApply = applyLang;
-  applyLang = (lang) => { _origApply(lang); syncLangLinks(lang); };
-  applyLang(detectLang());
-</script>
+<script src="js/app.js"></script>
 </body>
 </html>
