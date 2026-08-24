@@ -95,9 +95,16 @@
       $('p-price').textContent = moneda + ' ' + precio.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       $('p-desc').textContent = p.Descripcion_Es || '';
 
-      // Intentar abrir la app (deep link; si no está instalada, la web
-      // muestra el producto igual y el botón lleva a la Play Store).
-      $('p-open').href = PLAY_URL;
+      // Intentar abrir la app vía deep link nativo (cumashop://); si no
+      // está instalada, el navegador no responde y el timeout lleva a la
+      // Play Store.
+      var btn = $('p-open');
+      btn.href = PLAY_URL;
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.location.href = 'cumashop://producto/' + id;
+        setTimeout(function () { window.location.href = PLAY_URL; }, 1200);
+      });
       $('product').style.display = 'block';
     })
     .catch(function () {
