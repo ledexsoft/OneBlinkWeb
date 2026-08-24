@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CumaShop — Producto</title>
+  <meta name="description" content="Producto de CumaShop, el marketplace de tu pueblo, a tu puerta." />
+  <!-- Open Graph: preview de tarjeta en WhatsApp/Telegram -->
+  <meta property="og:type" content="product" />
+  <meta property="og:site_name" content="CumaShop" />
+  <meta property="og:title" content="CumaShop — Producto" />
+  <meta property="og:description" content="Míralo en CumaShop, el marketplace de tu pueblo, a tu puerta." />
+  <meta property="og:image" content="https://ledexsoft.github.io/OneBlinkWeb/assets/hero_cumashop.png" />
+  <meta property="og:url" content="https://ledexsoft.github.io/OneBlinkWeb/p.html" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body class="page-privacidad">
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">⚡</span> CumaShop</a>
+  </div>
+</header>
+
+<div class="layout">
+  <div class="content" style="max-width: 560px; margin: 0 auto;">
+
+    <div class="hero-card" id="loading">
+      <span class="badge">Producto</span>
+      <h1>Cargando producto…</h1>
+    </div>
+
+    <div class="hero-card" id="notfound" style="display:none">
+      <span class="badge">Producto</span>
+      <h1>Producto no encontrado</h1>
+      <p class="lead">Este enlace no corresponde a un producto activo de CumaShop.</p>
+    </div>
+
+    <div class="hero-card" id="product" style="display:none">
+      <img id="p-img" alt="" style="width:100%; border-radius:16px; aspect-ratio:1/1; object-fit:cover; background:#eee;" />
+      <span class="badge" id="p-store" style="margin-top:16px"></span>
+      <h1 id="p-name" style="margin-top:8px"></h1>
+      <p class="lead" id="p-price" style="font-size:24px; font-weight:800;"></p>
+      <p id="p-desc" style="white-space:pre-line;"></p>
+      <a id="p-open" class="btn-primary" href="#" style="display:block; text-align:center; margin-top:20px; padding:14px; border-radius:12px; background:#68548E; color:#fff; text-decoration:none; font-weight:700;">
+        Abrir en CumaShop
+      </a>
+      <p style="font-size:12px; opacity:.6; margin-top:10px; text-align:center;">
+        ¿No tienes la app? Descárgala desde Google Play.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var URL_BASE = 'https://tmvqkpkbxagxxgmgqcpl.supabase.co';
+  // anon key pública: el catálogo visible es público por diseño (RLS).
+  var ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtdnFrcGtieGFneHhnbWdxY3BsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE0ODYwNTcsImV4cCI6MjAzNzA2MjA1N30.Zx5G8Vnmy4ZW2dCKi8ScmcNa40KSqmWL4sEzZoMqwLM';
+  var PLAY_URL = 'https://play.google.com/store/apps/details?id=com.ledexsoft.oneblink';
+
+  function $(id) { return document.getElementById(id); }
+
+  function esc(s) {
+    var d = document.createElement('div');
+    d.textContent = s == null ? '' : String(s);
+    return d.innerHTML;
+  }
+
+  var params = new URLSearchParams(window.location.search);
+  var id = params.get('id');
+
+  if (!id || !/^\d{1,10}$/.test(id)) {
+    $('loading').style.display = 'none';
+    $('notfound').style.display = 'block';
+    return;
+  }
+
+  fetch(URL_BASE + '/rest/v1/Ofertas?select=Titulo_Es,Descripcion_Es,Precio_base_UI,Moneda_base,Imagen_Portada,Seccion&id=eq.' + id + '&Activo=eq.true&limit=1', {
+    headers: { apikey: ANON, Authorization: 'Bearer ' + ANON }
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (rows) {
+      $('loading').style.display = 'none';
+      var p = rows && rows[0];
+      if (!p) { $('notfound').style.display = 'block'; return; }
+
+      var img = p.Imagen_Portada;
+      if (img) { $('p-img').src = img; }
+      $('p-name').textContent = p.Titulo_Es || 'Producto';
+      $('p-store').textContent = p.Seccion || '';
+      var moneda = p.Moneda_base || 'CUP';
+      var precio = Number(p.Precio_base_UI || 0);
+      $('p-price').textContent = moneda + ' ' + precio.toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      $('p-desc').textContent = p.Descripcion_Es || '';
+
+      // Intentar abrir la app (deep link; si no está instalada, la web
+      // muestra el producto igual y el botón lleva a la Play Store).
+      $('p-open').href = PLAY_URL;
+      $('product').style.display = 'block';
+    })
+    .catch(function () {
+      $('loading').style.display = 'none';
+      $('notfound').style.display = 'block';
+    });
+})();
+</script>
+</body>
+</html>
