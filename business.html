@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f3f1" />
+    <title>Negocio en LedexSoft</title>
+    <style>
+      :root { color-scheme: light dark; font: 16px/1.5 system-ui, sans-serif; }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f7f3f1; color: #211b1a; }
+      main { box-sizing: border-box; width: min(92vw, 440px); padding: 28px; border-radius: 24px; background: white; box-shadow: 0 12px 40px #35231d18; }
+      h1 { margin: 0 0 10px; font-size: 1.5rem; }
+      p { color: #625653; }
+      a, button { display: block; box-sizing: border-box; width: 100%; margin-top: 14px; padding: 14px 18px; border: 0; border-radius: 999px; background: #593a37; color: white; text-align: center; text-decoration: none; font: inherit; font-weight: 650; cursor: pointer; }
+      button.secondary { background: #efe8e5; color: #352522; }
+      code { overflow-wrap: anywhere; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 id="title">Negocio en LedexSoft</h1>
+      <p id="body">Este enlace abre el panel del negocio dentro de LedexSoft. Inicia sesión con una cuenta que tenga acceso al negocio.</p>
+      <p><span id="id-label">Identificador del negocio:</span> <code id="business-id">—</code></p>
+      <a id="open-app" href="#">Abrir en LedexSoft</a>
+      <button id="copy-id" class="secondary" type="button">Copiar identificador</button>
+      <p id="invalid" hidden>El enlace no contiene un identificador válido.</p>
+    </main>
+    <script>
+      const copy = {
+        es: { title: 'Negocio en LedexSoft', body: 'Este enlace abre el panel del negocio dentro de LedexSoft. Inicia sesión con una cuenta que tenga acceso al negocio.', id: 'Identificador del negocio:', open: 'Abrir en LedexSoft', copy: 'Copiar identificador', copied: 'Identificador copiado', invalid: 'El enlace no contiene un identificador válido.' },
+        en: { title: 'Business in LedexSoft', body: 'This link opens the business dashboard in LedexSoft. Sign in with an account that has access to this business.', id: 'Business ID:', open: 'Open in LedexSoft', copy: 'Copy business ID', copied: 'Business ID copied', invalid: 'This link does not contain a valid business ID.' },
+        pt: { title: 'Negócio no LedexSoft', body: 'Este link abre o painel do negócio no LedexSoft. Entre com uma conta que tenha acesso a este negócio.', id: 'ID do negócio:', open: 'Abrir no LedexSoft', copy: 'Copiar ID do negócio', copied: 'ID do negócio copiado', invalid: 'Este link não contém um ID de negócio válido.' },
+      };
+      const language = (navigator.language || 'es').slice(0, 2).toLowerCase();
+      const text = copy[language] || copy.es;
+      document.documentElement.lang = copy[language] ? language : 'es';
+      document.getElementById('title').textContent = text.title;
+      document.getElementById('body').textContent = text.body;
+      document.getElementById('id-label').textContent = text.id;
+      document.getElementById('open-app').textContent = text.open;
+      document.getElementById('copy-id').textContent = text.copy;
+      document.getElementById('invalid').textContent = text.invalid;
+
+      const id = new URLSearchParams(location.search).get('id') || '';
+      const valid = /^\d+$/.test(id) && Number(id) > 0;
+      if (valid) {
+        document.getElementById('business-id').textContent = id;
+        document.getElementById('open-app').href = `ledexsoft://business/${encodeURIComponent(id)}`;
+        document.getElementById('copy-id').addEventListener('click', async () => {
+          await navigator.clipboard.writeText(id);
+          document.getElementById('copy-id').textContent = text.copied;
+        });
+      } else {
+        document.getElementById('business-id').closest('p').hidden = true;
+        document.getElementById('open-app').hidden = true;
+        document.getElementById('copy-id').hidden = true;
+        document.getElementById('invalid').hidden = false;
+      }
+    </script>
+  </body>
+</html>
