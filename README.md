@@ -29,9 +29,16 @@ Este repo crecerá para alojar la web completa de OneBlink
 
 ## Enlace a negocios de LedexSoft
 
-La URL pública acordada es `https://cumashop.app/business.html?id=<id>`. Antes
-de considerar Universal/App Links publicados, configurar el dominio `cumashop.app`
-para servir este repo por HTTPS, comprobar el AASA en `/.well-known/` y habilitar
-Associated Domains en el App ID iOS. Android requiere `/.well-known/assetlinks.json`
-con la huella SHA-256 del certificado de Play que firma LedexSoft; no debe
-rellenarse con la clave de upload si Play App Signing usa otra firma.
+El fallback actualmente publicado es
+`https://ledexsoft.github.io/OneBlinkWeb/business.html?id=<id>`. La página solo
+procesa el ID y ofrece abrir LedexSoft mediante su esquema registrado; no
+consulta ni revela datos privados del negocio. El enlace `cumashop.app` no se
+usa mientras el dominio no resuelva públicamente.
+
+El archivo `.well-known/apple-app-site-association` de este repo es solo una
+fuente preparada: GitHub Pages sirve este proyecto bajo `/OneBlinkWeb/`, no en
+la raíz del host. Por eso no constituye una asociación Universal Link activa.
+Para enlaces verificados hace falta un host raíz resoluble, servir allí AASA y
+`assetlinks.json`, habilitar Associated Domains en el App ID iOS, y publicar en
+Digital Asset Links la SHA-256 exacta del certificado de distribución Android
+(el certificado de Play App Signing, no necesariamente el de upload).
