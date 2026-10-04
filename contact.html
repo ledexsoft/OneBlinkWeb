@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f3f1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Contacto en CumaShop</title>
+    <style>
+      :root { font: 16px/1.5 system-ui, sans-serif; color-scheme: light; }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f7f3f1; color: #211b1a; }
+      main { box-sizing: border-box; width: min(92vw, 440px); padding: 28px; border-radius: 24px; background: white; box-shadow: 0 12px 40px #35231d18; }
+      h1 { margin: 0 0 10px; font-size: 1.5rem; }
+      p { color: #625653; }
+      a, button { display: block; box-sizing: border-box; width: 100%; margin-top: 14px; padding: 14px 18px; border: 0; border-radius: 999px; background: #593a37; color: white; text-align: center; text-decoration: none; font: inherit; font-weight: 650; cursor: pointer; }
+      button.secondary { background: #efe8e5; color: #352522; }
+      code { overflow-wrap: anywhere; }
+      [hidden] { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 id="title">Contacto en CumaShop</h1>
+      <p id="body">Abre este enlace en CumaShop o copia el identificador para pegarlo en Contactos. La página no muestra información del perfil.</p>
+      <p id="id-row"><span id="id-label">Identificador de contacto:</span> <code id="contact-id">—</code></p>
+      <a id="open-app" href="#">Abrir en CumaShop</a>
+      <button id="copy-id" class="secondary" type="button">Copiar identificador</button>
+      <p id="copy-status" role="status" aria-live="polite"></p>
+      <p id="invalid" hidden>El enlace no contiene un identificador válido.</p>
+    </main>
+    <script>
+      (() => {
+        const copy = {
+          es: { title: 'Contacto en CumaShop', body: 'Abre este enlace en CumaShop o copia el identificador para pegarlo en Contactos. La página no muestra información del perfil.', id: 'Identificador de contacto:', open: 'Abrir en CumaShop', copy: 'Copiar identificador', copied: 'Identificador copiado. Pégalo en Contactos dentro de CumaShop.', failed: 'No se pudo copiar. Selecciona el identificador y cópialo.', invalid: 'El enlace no contiene un identificador válido.' },
+          en: { title: 'CumaShop contact', body: 'Open this link in CumaShop, or copy the ID and paste it in Contacts. This page does not show profile information.', id: 'Contact ID:', open: 'Open CumaShop', copy: 'Copy ID', copied: 'ID copied. Paste it in Contacts in CumaShop.', failed: 'Could not copy. Select the ID and copy it.', invalid: 'This link does not contain a valid ID.' },
+          pt: { title: 'Contato no CumaShop', body: 'Abra este link no CumaShop ou copie o identificador para colá-lo em Contatos. Esta página não mostra informações do perfil.', id: 'Identificador do contato:', open: 'Abrir no CumaShop', copy: 'Copiar identificador', copied: 'Identificador copiado. Cole-o em Contatos no CumaShop.', failed: 'Não foi possível copiar. Selecione e copie o identificador.', invalid: 'Este link não contém um identificador válido.' },
+        };
+        const language = (navigator.language || 'es').slice(0, 2).toLowerCase();
+        const text = copy[language] || copy.es;
+        document.documentElement.lang = copy[language] ? language : 'es';
+        document.getElementById('title').textContent = text.title;
+        document.getElementById('body').textContent = text.body;
+        document.getElementById('id-label').textContent = text.id;
+        document.getElementById('open-app').textContent = text.open;
+        document.getElementById('copy-id').textContent = text.copy;
+        document.getElementById('invalid').textContent = text.invalid;
+
+        const id = new URLSearchParams(location.search).get('id') || '';
+        const valid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(id);
+        if (!valid) {
+          document.getElementById('id-row').hidden = true;
+          document.getElementById('open-app').hidden = true;
+          document.getElementById('copy-id').hidden = true;
+          document.getElementById('invalid').hidden = false;
+          return;
+        }
+
+        document.getElementById('contact-id').textContent = id;
+        document.getElementById('open-app').href = `cumashop://contacto/${encodeURIComponent(id)}`;
+        document.getElementById('copy-id').addEventListener('click', async () => {
+          const status = document.getElementById('copy-status');
+          try {
+            await navigator.clipboard.writeText(id);
+            status.textContent = text.copied;
+          } catch (_) {
+            status.textContent = text.failed;
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

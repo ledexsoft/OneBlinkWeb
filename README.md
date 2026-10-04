@@ -7,6 +7,8 @@ Sitio web oficial de **OneBlink** — el marketplace de Cuba.
 - `privacidad.html` — **Política de Privacidad** completa (ES / EN / PT)
 - `business.html` — fallback público de enlaces a negocios de LedexSoft; solo
   procesa el identificador de negocio, no consulta ni revela datos privados.
+- `contact.html` — fallback público de contactos CumaShop; procesa solo el UUID
+  compartido y permite abrir la app o copiarlo, sin consultar el perfil.
 - `.well-known/apple-app-site-association` — asociación fuente para Universal
   Links de LedexSoft en `/business.html`.
 
@@ -42,3 +44,12 @@ Para enlaces verificados hace falta un host raíz resoluble, servir allí AASA y
 `assetlinks.json`, habilitar Associated Domains en el App ID iOS, y publicar en
 Digital Asset Links la SHA-256 exacta del certificado de distribución Android
 (el certificado de Play App Signing, no necesariamente el de upload).
+
+## Enlaces de contactos de CumaShop
+
+El fallback público es
+`https://ledexsoft.github.io/OneBlinkWeb/contact.html?id=<uuid>`. No realiza
+consultas a Supabase ni expone información del perfil. Ofrece abrir
+`cumashop://contacto/<uuid>` o copiar el identificador para pegarlo en
+Contactos. El cliente mantiene compatibilidad con enlaces históricos
+`https://cumashop.app/contact/<uuid>`.
